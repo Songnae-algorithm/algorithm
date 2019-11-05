@@ -3,11 +3,8 @@
 ## Twosomeplace-event
 > NDS problem
  - 1. hashtable
- - 2. nono
+
  
  
 ## Bombs
 > NDS problem
-
-
-## 수빈 수정
