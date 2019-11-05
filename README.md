@@ -1,2 +1,2 @@
 # algorithm
-solve algorithm problems
+solving algorithm problems
