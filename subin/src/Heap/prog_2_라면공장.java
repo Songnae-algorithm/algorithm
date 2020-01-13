@@ -9,7 +9,11 @@ public class prog_2_라면공장 {
         
         //원래는 오름차순인 pq를 내림차순으로 바꿔준다.
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Comparator.reverseOrder());
-        
+
+        //priorityqueue는 바로 reverseorder가능하고 list는 생성후에 Collections사용해서 내림차순 만들 수 있다.
+        //        LinkedList<Integer> list = new LinkedList<Integer>();
+        //        Collections.sort(list,Collections.reverseOrder());
+       
         int idx = 0; //dates의 개수만큼만 작동하게 한다. i를 활용하면 k-1까지 가니까 다른 변수 사용해야함
         
         for(int i=0;i<k;i++) {//i는 하루하루 지나는 날짜, k-1만큼만 돈다.
