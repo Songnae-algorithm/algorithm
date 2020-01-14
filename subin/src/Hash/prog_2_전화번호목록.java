@@ -2,7 +2,7 @@ package Hash;
 
 import java.util.*;
 
-public class prog_2_ÀüÈ­¹øÈ£¸ñ·Ï {
+public class prog_2_ì „í™”ë²ˆí˜¸ëª©ë¡{
 	
     static public boolean solution(String[] phone_book) {
         boolean answer = true;
