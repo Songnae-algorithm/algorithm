@@ -1,3 +1,4 @@
-# Songnae Algorithm Study
+# 부평 Algorithm Study
 
-## 매주 화요일 7시 진행
+## 매주 화요일 & 금요일 10:00 ~ 14:00 진행
+
