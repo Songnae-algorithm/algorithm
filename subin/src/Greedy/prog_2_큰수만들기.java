@@ -2,7 +2,7 @@ package Greedy;
 
 import java.util.*;
 
-public class prog_2_Å«¼ö¸¸µé±â {
+public class prog_2_í°ìˆ˜ë§Œë“¤ê¸° {
 
     static public String solution(String number, int k) {
     	String answer = "";
@@ -12,23 +12,23 @@ public class prog_2_Å«¼ö¸¸µé±â {
     	
     	int idx=1;
     	
-    	//½ÃÀÛÀº µÎ¹øÂ°¿Í Ã¹¹øÂ° idx¸¦ ºñ±³·Î ÇÑ´Ù.
+    	//ì‹œì‘ì€ ë‘ë²ˆì§¸ì™€ ì²«ë²ˆì§¸ idxë¥¼ ë¹„êµë¡œ í•œë‹¤.
     	while(k!=0) {
     		if(idx >= 1 &&sb.charAt(idx)>sb.charAt(idx-1)) {
     			//idx-1 < idx
-				sb.deleteCharAt(idx-1); // idx-1¹øÂ°´Â ÀÛÀ¸´Ï±î Áö¿ö¹ö¸®±â
-				idx = idx-1; //ÇÏ³ª »ç¶óÁ³À¸´Ï±î ¾ÕÀ¸·Î idx ÇÑ°³ ´ç±â±â
-				k--; //Áö¿üÀ¸´Ï±î kµµ --
+				sb.deleteCharAt(idx-1); // idx-1ë²ˆì§¸ëŠ” ì‘ìœ¼ë‹ˆê¹Œ ì§€ì›Œë²„ë¦¬ê¸°
+				idx = idx-1; //í•˜ë‚˜ ì‚¬ë¼ì¡Œìœ¼ë‹ˆê¹Œ ì•ìœ¼ë¡œ idx í•œê°œ ë‹¹ê¸°ê¸°
+				k--; //ì§€ì› ìœ¼ë‹ˆê¹Œ kë„ --
 				
     		}
-			else {//1)idx==0 OR  2)idx-1 >= idx OR 3)idx==0 && idx-1 >= idx ...¸¹Àº case
-				// idx°¡ ¸¶Áö¸· ¿ø¼ÒÀÌ¸é¼­ + 2)À§ÀÇ ¹İ´ë idx°¡ ÀÛ°í idx-1ÀÌ Å¬ ¶§¿Í °°À» ¶§
+			else {//1)idx==0 OR  2)idx-1 >= idx OR 3)idx==0 && idx-1 >= idx ...ë§ì€ case
+				// idxê°€ ë§ˆì§€ë§‰ ì›ì†Œì´ë©´ì„œ + 2)ìœ„ì˜ ë°˜ëŒ€ idxê°€ ì‘ê³  idx-1ì´ í´ ë•Œì™€ ê°™ì„ ë•Œ
 				if(idx == sb.length()-1 && sb.charAt(idx) <= sb.charAt(idx-1)) {
 					sb.deleteCharAt(idx);
-					idx = idx-1; // ¸ÇµÚ°¡ ¾ø¾îÁ³À¸´Ï±î idx ÇÑÄ­ ´ç±â±â
+					idx = idx-1; // ë§¨ë’¤ê°€ ì—†ì–´ì¡Œìœ¼ë‹ˆê¹Œ idx í•œì¹¸ ë‹¹ê¸°ê¸°
 					k--;
 				}
-				else {//idx°¡ ¸¶Áö¸·ÀÌ ¾Æ´Ï°í idx-1>=idx ÀÏ °æ¿ì  OR idx°¡ ¸¶Áö¸·ÀÌ°í idx>idx-1
+				else {//idxê°€ ë§ˆì§€ë§‰ì´ ì•„ë‹ˆê³  idx-1>=idx ì¼ ê²½ìš°  OR idxê°€ ë§ˆì§€ë§‰ì´ê³  idx>idx-1
 					idx = idx+1;
 				}
 			}

@@ -2,12 +2,12 @@ package Stack_Queue;
 
 import java.util.*;
 
-//½ºÅÃ, Å¥
-public class prog_2_Å¾ {
+//ìŠ¤íƒ, í
+public class prog_2_íƒ‘ {
 
 	static public int[] solution(int[] heights) {
 		int size = heights.length;
-		int arr[] = new int[size+1]; // index Çò°¥¸®Áö ¾Ê±â À§ÇØ¼­ size+1 ¸¸Å­ ¸¸µê
+		int arr[] = new int[size+1]; // index í—·ê°ˆë¦¬ì§€ ì•Šê¸° ìœ„í•´ì„œ size+1 ë§Œí¼ ë§Œë“¦
 		boolean check = false;
 		
 		ArrayList<Integer> list  = new ArrayList<Integer>();
@@ -16,19 +16,19 @@ public class prog_2_Å¾ {
 		for(int i=0;i<size;i++) 
 			arr[i+1] = heights[i];
 		
-		for(int i=2; i<=size; i++) { //1ÃşÀº 0ÀÌ´Ï±î 2ÃşºÎÅÍ È®ÀÎ
-			for(int j=i-1; j>=1; j--) { // i-1ÃşºÎÅÍ Â÷·ÊÂ÷·Ê ¹Ø È®ÀÎ
-				if(arr[i] <arr[j]) { //ÇöÀçÃşº¸´Ù Å«°Ô ÀÖ´Ù¸é
-					list.add(j); //´ä¿¡ ³Ö¾îÁÖ°í
+		for(int i=2; i<=size; i++) { //1ì¸µì€ 0ì´ë‹ˆê¹Œ 2ì¸µë¶€í„° í™•ì¸
+			for(int j=i-1; j>=1; j--) { // i-1ì¸µë¶€í„° ì°¨ë¡€ì°¨ë¡€ ë°‘ í™•ì¸
+				if(arr[i] <arr[j]) { //í˜„ì¬ì¸µë³´ë‹¤ í°ê²Œ ìˆë‹¤ë©´
+					list.add(j); //ë‹µì— ë„£ì–´ì£¼ê³ 
 					check = true;
 					break;
 				}
 			}
 			
-			if(check== false) //°É¸®´Â°Å ÇÏ³ª ¾øÀÌ ³ª¿Â´Ù¸é-> Å«°Ô ¾ø´Ù´Â°Å
-				list.add(0); //±×·³ ´ä¿¡ 0 Ãß°¡
+			if(check== false) //ê±¸ë¦¬ëŠ”ê±° í•˜ë‚˜ ì—†ì´ ë‚˜ì˜¨ë‹¤ë©´-> í°ê²Œ ì—†ë‹¤ëŠ”ê±°
+				list.add(0); //ê·¸ëŸ¼ ë‹µì— 0 ì¶”ê°€
 			
-			check = false; // check¿¡ true°É·ÁÀÖÀ» ¼öµµ ÀÖÀ¸´Ï±î false·Î Ã³¸®
+			check = false; // checkì— trueê±¸ë ¤ìˆì„ ìˆ˜ë„ ìˆìœ¼ë‹ˆê¹Œ falseë¡œ ì²˜ë¦¬
 		}
 		
 		return list.stream().mapToInt(k->k).toArray(); // list to Array

@@ -2,33 +2,33 @@ package Heap;
 
 import java.util.*;
 
-public class prog_2_¶ó¸é°øÀå {
+public class prog_2_ë¼ë©´ê³µì¥ {
 
     public static int solution(int stock, int[] dates, int[] supplies, int k) {
         int answer = 0;
         
-        //¿ø·¡´Â ¿À¸§Â÷¼øÀÎ pq¸¦ ³»¸²Â÷¼øÀ¸·Î ¹Ù²ãÁØ´Ù.
+        //ì›ë˜ëŠ” ì˜¤ë¦„ì°¨ìˆœì¸ pqë¥¼ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ë°”ê¿”ì¤€ë‹¤.
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Comparator.reverseOrder());
 
-        //priorityqueue´Â ¹Ù·Î reverseorder°¡´ÉÇÏ°í list´Â »ı¼ºÈÄ¿¡ Collections»ç¿ëÇØ¼­ ³»¸²Â÷¼ø ¸¸µé ¼ö ÀÖ´Ù.
+        //priorityqueueëŠ” ë°”ë¡œ reverseorderê°€ëŠ¥í•˜ê³  listëŠ” ìƒì„±í›„ì— Collectionsì‚¬ìš©í•´ì„œ ë‚´ë¦¼ì°¨ìˆœ ë§Œë“¤ ìˆ˜ ìˆë‹¤.
         //        LinkedList<Integer> list = new LinkedList<Integer>();
         //        Collections.sort(list,Collections.reverseOrder());
        
-        int idx = 0; //datesÀÇ °³¼ö¸¸Å­¸¸ ÀÛµ¿ÇÏ°Ô ÇÑ´Ù. i¸¦ È°¿ëÇÏ¸é k-1±îÁö °¡´Ï±î ´Ù¸¥ º¯¼ö »ç¿ëÇØ¾ßÇÔ
+        int idx = 0; //datesì˜ ê°œìˆ˜ë§Œí¼ë§Œ ì‘ë™í•˜ê²Œ í•œë‹¤. ië¥¼ í™œìš©í•˜ë©´ k-1ê¹Œì§€ ê°€ë‹ˆê¹Œ ë‹¤ë¥¸ ë³€ìˆ˜ ì‚¬ìš©í•´ì•¼í•¨
         
-        for(int i=0;i<k;i++) {//i´Â ÇÏ·çÇÏ·ç Áö³ª´Â ³¯Â¥, k-1¸¸Å­¸¸ µ·´Ù.
-        	//¾Æ µé¾î°¡Áö¾Ê¾Æµµ dates[3]À» °Ë»çÇÏ¸é¼­ ÀÌ¹Ì error!!!!
-        	if(idx < dates.length &&i == dates[idx]){//dates´Â Á¤·ÄµÇ¾îÀÖÀ¸¹Ç·Î dates[0], dates[1], dates[2]..
-        		pq.offer(supplies[idx]); // °°Àº À§Ä¡¿¡ ÀÖ´Â supplies[0], supplies[1],,,À» pq¿¡ ³Ö°í
-        		idx++;//´ÙÀ½ data¸¦ À§ÇØ idx´Â Áõ°¡½ÃÅ²´Ù.
+        for(int i=0;i<k;i++) {//iëŠ” í•˜ë£¨í•˜ë£¨ ì§€ë‚˜ëŠ” ë‚ ì§œ, k-1ë§Œí¼ë§Œ ëˆë‹¤.
+        	//ì•„ ë“¤ì–´ê°€ì§€ì•Šì•„ë„ dates[3]ì„ ê²€ì‚¬í•˜ë©´ì„œ ì´ë¯¸ error!!!!
+        	if(idx < dates.length &&i == dates[idx]){//datesëŠ” ì •ë ¬ë˜ì–´ìˆìœ¼ë¯€ë¡œ dates[0], dates[1], dates[2]..
+        		pq.offer(supplies[idx]); // ê°™ì€ ìœ„ì¹˜ì— ìˆëŠ” supplies[0], supplies[1],,,ì„ pqì— ë„£ê³ 
+        		idx++;//ë‹¤ìŒ dataë¥¼ ìœ„í•´ idxëŠ” ì¦ê°€ì‹œí‚¨ë‹¤.
         	}
         	
-        	if(stock == 0) {//0ÀÌ µÇ¸é »õ·Î¿î pqÀÇ »õ·Î¿î supplies¸¦ ÃæÀüÇØ¾ßÇÏ°í ÀÌ¶§ ¸Ç¾Õ¿¡ÀÖ´Â °ªÀÌ Á¦ÀÏ Å©¹Ç·Î stock¿¡ ´õÇØÁÜ
+        	if(stock == 0) {//0ì´ ë˜ë©´ ìƒˆë¡œìš´ pqì˜ ìƒˆë¡œìš´ suppliesë¥¼ ì¶©ì „í•´ì•¼í•˜ê³  ì´ë•Œ ë§¨ì•ì—ìˆëŠ” ê°’ì´ ì œì¼ í¬ë¯€ë¡œ stockì— ë”í•´ì¤Œ
         		stock = stock+ pq.poll();
-        		answer++; //pq¿¡¼­ ºüÁú ¶§¸¶´Ù ÇØ¿Ü¿¡¼­ °ø±ŞÇØ¿À´Â °ÍÀÌ±â‹š¹®¿¡ answer+1
+        		answer++; //pqì—ì„œ ë¹ ì§ˆ ë•Œë§ˆë‹¤ í•´ì™¸ì—ì„œ ê³µê¸‰í•´ì˜¤ëŠ” ê²ƒì´ê¸°Â‹Âšë¬¸ì— answer+1
         	}
         	
-        	//for¹® ÇÑ¹ø µ¹¶§¸¶´Ù ¹«Á¶°Ç stockÀº -1
+        	//forë¬¸ í•œë²ˆ ëŒë•Œë§ˆë‹¤ ë¬´ì¡°ê±´ stockì€ -1
         	stock = stock-1;
         }
         

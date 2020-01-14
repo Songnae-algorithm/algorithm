@@ -2,7 +2,7 @@ package Greedy;
 
 import java.util.*;
 
-public class prog_2_¡∂¿ÃΩ∫∆Ω {
+public class prog_2_Ï°∞Ïù¥Ïä§Ìã± {
 
     public int solution(String name) {
         int answer = 0;
@@ -12,10 +12,8 @@ public class prog_2_¡∂¿ÃΩ∫∆Ω {
         for(int i=0; i<name.length(); i++)
         	arr[i] = Math.min(name.charAt(i)-'A', 'Z'-name.charAt(i)+1);
         
-        
-        while(true) {
-        	
-        	
+        for(int i=0;i<name.length();i++) {
+       
         	
         }
         
