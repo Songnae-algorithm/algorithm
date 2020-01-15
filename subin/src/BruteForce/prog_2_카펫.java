@@ -17,11 +17,7 @@ public class prog_2_카펫 {
         		
         	}
         }
-        
-        
-        System.out.println(answer[0] + " " + answer[1]);
-        
-        
+   
         return answer;
     }
 	
