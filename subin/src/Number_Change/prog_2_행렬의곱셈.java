@@ -4,6 +4,7 @@ import java.util.*;
 
 public class prog_2_행렬의곱셈 {
 
+	//1h
     static public int[][] solution(int[][] arr1, int[][] arr2) {
         int[][] answer = new int [arr1.length][arr2[0].length];
         
