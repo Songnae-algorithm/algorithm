@@ -1,7 +1,5 @@
 package Number_Change;
 
-import java.util.*;
-
 public class prog_2_행렬의곱셈 {
 
 	//1h

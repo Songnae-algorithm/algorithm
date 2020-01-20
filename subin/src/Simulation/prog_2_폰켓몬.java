@@ -4,6 +4,7 @@ import java.util.*;
 
 public class prog_2_폰켓몬 {
 	
+	//30min
     public int solution(int[] nums) {
         int answer = 0;
         int size = nums.length/2;
