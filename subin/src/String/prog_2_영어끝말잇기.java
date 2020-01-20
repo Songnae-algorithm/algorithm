@@ -2,15 +2,16 @@ package String;
 
 import java.util.*;
 
+//1h
 public class prog_2_영어끝말잇기 {
-	
+
 	static public int[] solution(int n, String[] words) {
 		int answer[] = new int[2];
 		ArrayList<String> list = new ArrayList<String>();
 		boolean chk = false;
 		
-		int number = 0;
-		
+		//number 변수를 어떻게 설정하느냐가 가장 중요!
+		int number = 0;		
 		for(int i=0; i<words.length-1; i++) {
 			number++;
 			if(list.contains(words[i+1])) {
