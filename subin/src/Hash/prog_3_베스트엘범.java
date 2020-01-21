@@ -65,22 +65,20 @@ public class prog_3_베스트엘범 {
        while(keys.hasNext()) {
     	   String key = keys.next();
 		   
-    	   int i=0;
     	   Iterator<String> keyss = sortedMap.keySet().iterator();
 		   
     	   while(keyss.hasNext()) {
     		   keyss.next();
-    		   String a = i+"_"+key;
-    		   
-    		   if(sortedMap.get(a) != null) {
-//    			   System.out.println(i +"  " + sortedMap.get(a) +" "+ keyss.next());
-    			   String s[] = keyss.next().split("_");
-//    			   System.out.println(i + " " + s[0]);
-    			   
-    			   idx_list.add(s[0]);
-    			   answer_list.add(sortedMap.get(a));
-    		   }
-    		   i++;
+    		   for(int i=0; i<sortedMap.size(); i++) {
+    			   String a = i+"_"+key;
+	    		   
+	    		   if(sortedMap.get(a) != null) {
+	   			   System.out.println("i= " + i +" value = " + sortedMap.get(a) +" key = " + a);
+	    			   String s[] = a.split("_");
+	    			   idx_list.add(s[0]);
+	    			   answer_list.add(sortedMap.get(a));
+	    		   }
+    		   }//for
     	   }//while
     	   
     	   System.out.println(answer_list);
