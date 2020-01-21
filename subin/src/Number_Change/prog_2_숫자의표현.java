@@ -15,7 +15,7 @@ public class prog_2_숫자의표현 {
 				  if(sum%n ==0 && sum/n==1) {
 					  answer++;
 					  break;
-				  }
+				  } 
 				  j++;
 			  }
 		  }
