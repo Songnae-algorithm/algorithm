@@ -5,25 +5,28 @@ import java.util.*;
 public class pr_2_스킬트리 {
 	public static int solution(String skill, String[] skill_trees) {
 		int answer = 0;
-		boolean chk = true;
 
-		
-		char arr[]=new char[skill.length()];
-		
-		for(int i=0;i<skill.length();i++) {
-			arr[i]=(skill.charAt(i));//arr에 skill을 한 글자씩 넣음
-		}
-		
-		while(true) {
-		
-			for (int i = 0; i <arr.length(); i++) {
-				char test = skill_trees[i].charAt(0);
+		for (int i = 0; i < skill_trees.length; i++) {
+			boolean chk = true;
+			skill_trees[i] = skill_trees[i].replaceAll("[^" + skill + "]", "");
+			// skill이 들어간 문자열을 모두 공백으로 치환
 
-				if ((skill.charAt(0) != test) && (skill.contains(Character.toString(test)))) {
-					continue;
-				} else {
-					answer += 1;
+			for (int j = 0; j < skill_trees[i].length(); j++) {
+				if (skill_trees[i].charAt(j) != skill.charAt(j)) {
+					// 스킬트리의 값과 skill의 값이 다르면 false
+					chk = false;
 				}
+
+			}
+
+			if (chk == true) {// true일 때 answer++
+				answer++;
+
+				chk = true;//boolean을 초기화시켜줌
+			}
+		}
+
+		return answer;
 
 	}
 
