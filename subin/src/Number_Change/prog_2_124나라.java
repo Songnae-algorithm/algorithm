@@ -2,21 +2,21 @@ package Number_Change;
 
 import java.util.*;
 
-public class prog_2_124³ª¶ó {
+public class prog_2_124ë‚˜ë¼ {
 
 	static public String solution(int n) {
 	      String answer = "";
 	      
 	      int rest = 0;
 	      while(n>0) {
-	    	 //rest°¡ 0ÀÏ¶§¶û ¾Æ´Ò¶§¶û ±¸ºÐÇØ¼­ ¹®Á¦¸¦ ÇØ°áÇÑ´Ù.
+	    	 //restê°€ 0ì¼ë•Œëž‘ ì•„ë‹ë•Œëž‘ êµ¬ë¶„í•´ì„œ ë¬¸ì œë¥¼ í•´ê²°í•œë‹¤.
 	    	 rest = n%3;
 	    	 n = n/3;
 	    	 
-	    	 //¾îÂ÷ÇÇ ³ª¸ÓÁö´Â ¹«Á¶°Ç 0,1,2 Áß ÇÏ³ª´Ù
+	    	 //ì–´ì°¨í”¼ ë‚˜ë¨¸ì§€ëŠ” ë¬´ì¡°ê±´ 0,1,2 ì¤‘ í•˜ë‚˜ë‹¤
 	    	 if(rest==0) {
-	    		 rest = 4; // ¹Ø¿¡¼­ ´õÇØÁÙ°Å´Ï±î 4·Î ¹Ù²ãÁÖ°í
-	    		 n = n-1; // ¸òÀº  3%3 6%3 9%3 ±¸°£ µî ¶§  ÇÊ¿ä
+	    		 rest = 4; // ë°‘ì—ì„œ ë”í•´ì¤„ê±°ë‹ˆê¹Œ 4ë¡œ ë°”ê¿”ì£¼ê³ 
+	    		 n = n-1; // ëª«ì€  3%3 6%3 9%3 êµ¬ê°„ ë“± ë•Œ  í•„ìš”
 	    	 }
 	    	 
 	    	 answer = rest + answer;

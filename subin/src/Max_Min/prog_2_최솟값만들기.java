@@ -3,13 +3,13 @@ package Max_Min;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class prog_2_ÃÖ¼Ú°ª¸¸µé±â {
+public class prog_2_ìµœì†Ÿê°’ë§Œë“¤ê¸° {
 
     static public int solution(int []A, int []B)
     {
         int answer = 0;
         
-        Arrays.sort(A); // ÀÛÀº -> Å« ¼øÀ¸·Î Á¤·Ä
+        Arrays.sort(A); // ì‘ì€ -> í° ìˆœìœ¼ë¡œ ì •ë ¬
         Arrays.sort(B);
 
         for(int i=0;i<A.length;i++) {

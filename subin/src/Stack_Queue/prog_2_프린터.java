@@ -2,14 +2,14 @@ package Stack_Queue;
 
 import java.util.*;
 
-public class prog_2_ÇÁ¸°ÅÍ {
+public class prog_2_í”„ë¦°í„° {
 
 //    static public int solution(int[] priorities, int location) {
 //        int answer = 0;
 //        
-//        //Queue´Â ³»ºÎ¸¦ ´Ù ÈÈ¾îº¸Áö ¸øÇÏ¹Ç·Î LinkedList »ç¿ë
+//        //QueueëŠ” ë‚´ë¶€ë¥¼ ë‹¤ í›‘ì–´ë³´ì§€ ëª»í•˜ë¯€ë¡œ LinkedList ì‚¬ìš©
 //        LinkedList<Integer> index = new LinkedList<Integer>(); //index
-//        LinkedList<Integer> prio = new LinkedList<Integer>(); // Áß¿äµµ
+//        LinkedList<Integer> prio = new LinkedList<Integer>(); // ì¤‘ìš”ë„
 //        boolean check = false;
 //        
 //        for(int i=0;i<priorities.length;i++) {
@@ -18,9 +18,9 @@ public class prog_2_ÇÁ¸°ÅÍ {
 //        }
 //        
 //        while(true) {
-//        	for(int i=1;i<prio.size();i++) {//¸Ç¾Õ°ú, ³ª¸ÓÁö ºñ±³
+//        	for(int i=1;i<prio.size();i++) {//ë§¨ì•ê³¼, ë‚˜ë¨¸ì§€ ë¹„êµ
 //        		if(prio.get(0)<prio.get(i)) {
-//        			//¸Ç¾Õº¸´Ù Áß¿äµµ ³ôÀº °ÍµéÀÌ ÀÖ´Ù¸é Á¦°ÅÇØ¼­ µÚ·Î º¸³»ÁØ´Ù
+//        			//ë§¨ì•ë³´ë‹¤ ì¤‘ìš”ë„ ë†’ì€ ê²ƒë“¤ì´ ìˆë‹¤ë©´ ì œê±°í•´ì„œ ë’¤ë¡œ ë³´ë‚´ì¤€ë‹¤
 //        			int rem_idx = index.remove(0);
 //        			index.add(rem_idx);
 //        			
@@ -31,7 +31,7 @@ public class prog_2_ÇÁ¸°ÅÍ {
 //        		}
 //        	}
 //        	
-//        	if(check == false) { //³ªº¸´Ù Å«¾Ö°¡ ¾ø´Ù´Â°Å
+//        	if(check == false) { //ë‚˜ë³´ë‹¤ í°ì• ê°€ ì—†ë‹¤ëŠ”ê±°
 //        		if(index.get(0) == location) {
 //        			answer++;
 //        			break;
@@ -44,7 +44,7 @@ public class prog_2_ÇÁ¸°ÅÍ {
 //        		}
 //        	}
 //        	
-//        	check=false; // »©¸ÔÁö ¾Êµµ·Ï ÁÖÀÇÇÑ´Ù! ÀÚÄ©ÇÏ¸é ¹«ÇÑ·çÇÁ µ¹ ¼ö ÀÖÀ½
+//        	check=false; // ë¹¼ë¨¹ì§€ ì•Šë„ë¡ ì£¼ì˜í•œë‹¤! ìì¹«í•˜ë©´ ë¬´í•œë£¨í”„ ëŒ ìˆ˜ ìˆìŒ
 //        }
 //        
 //        
