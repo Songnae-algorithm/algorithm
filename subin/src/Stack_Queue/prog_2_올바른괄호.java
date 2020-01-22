@@ -17,8 +17,10 @@ public class prog_2_올바른괄호 {
         	else { //들어갈 준비중인게 )
         		if(stk.isEmpty())
         			return false;
-        		else if(stk.pop() != '(')
-        			return false;
+        		
+        		stk.pop();
+//        		else if(stk.pop() != '(')
+//        			return false;
         	}
         }
         
