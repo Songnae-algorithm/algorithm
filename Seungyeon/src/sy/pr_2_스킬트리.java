@@ -1,6 +1,5 @@
 package sy;
 
-import java.util.*;
 
 public class pr_2_스킬트리 {
 	public static int solution(String skill, String[] skill_trees) {
@@ -22,7 +21,6 @@ public class pr_2_스킬트리 {
 			if (chk == true) {// true일 때 answer++
 				answer++;
 
-				chk = true;//boolean을 초기화시켜줌
 			}
 		}
 
