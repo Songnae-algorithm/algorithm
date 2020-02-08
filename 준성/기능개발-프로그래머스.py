@@ -1,5 +1,6 @@
 def solution(progresses, speeds):
   # 완성(while문 수정하고 싶다)
+    #다시 1회
     queue = []
     count = 0
     answer = []

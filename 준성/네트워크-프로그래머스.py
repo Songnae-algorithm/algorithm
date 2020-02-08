@@ -5,7 +5,7 @@ def dfs(v, visited, adj):
             dfs(e, visited, adj)
 
 def solution(n, computers):
-  # 완성 코드(다시 1회)
+  # 완성 코드(2회 와료)
     count = 0
     adj = [[] for _ in range(n)]
     for i in range(len(computers)):

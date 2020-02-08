@@ -1,5 +1,6 @@
 def solution(s):
-  # 완성
+  # 완성(다시 1회)
+  # 더 좋은 코드는 없을까?
   stack = []
   for value in s:
     if value == "(":

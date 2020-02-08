@@ -1,6 +1,7 @@
 from collections import deque
 
 def dfs(v):
+    # 2회 완료
     print(v, end=' ')
     visited[v] = True
     for e in adj[v]:
