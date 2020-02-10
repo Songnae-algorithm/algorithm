@@ -8,14 +8,14 @@ public class t3 {
 		int stop[] = new int[nums.length];
 		int stopnum = nums.length-1;
 		
-		Stack<Integer> stk = new Stack<Integer>();
+		boolean check = false;
+		Queue<Integer> qu = new LinkedList<Integer>();
 		
-		stk.push(0);
+		qu.offer(0);
 		
-		//도착 못하면 -1 -> 무조건 무한루프 돈다!
-		while(!stk.isEmpty()) {
-			int pop = nums[stk.peek()];
-			int idx = stk.pop();
+		while(!qu.isEmpty()) {
+			int pop = nums[qu.peek()];
+			int idx = qu.poll();
 			
 			int front = idx + pop;
 			int back = idx - pop;
@@ -33,26 +33,26 @@ public class t3 {
 			
 			if(front>=0 && front<nums.length && (back<0 || back>=nums.length)) {
 				//front만
-				stk.push(front);
+				qu.offer(front);
 				stop[front] = stop[idx] + 1;
 				
 			}
 			else if(back>=0 && back<nums.length && (front<0 || front>=nums.length)) {
 				//back만
-				stk.push(back);
+				qu.offer(back);
 				stop[back] = stop[idx] + 1;
 			}
 			else if((front>=0 && front<nums.length) && (back>=0 && back<nums.length)) {
 				//front & back 둘 다
-				stk.push(front);
-				stk.push(back);
+				qu.offer(front);
+				qu.offer(back);
 				
 				stop[front] = stop[idx] + 1;
 				stop[back] = stop[idx] + 1;
 			}
 		}
 		
-		//stk가 return에 걸리는 것 없이 empty돼서 빠져나오면 도달 못한다는 뜻이니까 -1 return한다
+		//qu가 return에 걸리는 것 없이 empty돼서 빠져나오면 도달 못한다는 뜻이니까 -1 return한다...는 무한루프 해결 못함
 		return -1;
 	}
 	
