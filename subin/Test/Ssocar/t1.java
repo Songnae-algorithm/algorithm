@@ -81,7 +81,7 @@ public class t1 {
 		int si[] = sol(n);
 		
 		for(int i=0;i<si.length; i++) {
-			System.out.print(si[i] +"  ");
+			System.out.print(si[i] +" ");
 		}
 	}
 }
