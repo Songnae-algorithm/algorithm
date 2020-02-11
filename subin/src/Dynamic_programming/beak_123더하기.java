@@ -25,5 +25,3 @@ public class beak_123더하기 {
 		
 	}
 }
-
-//https://nhs0912.tistory.com/62
