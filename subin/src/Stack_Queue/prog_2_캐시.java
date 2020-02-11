@@ -4,7 +4,7 @@ import java.util.*;
 
 public class prog_2_캐시 {
 
-	//은근 잔 조건들이 많네...;
+	//은근 잔 조건들이 많네...; 40min
 	  static public int solution(int cacheSize, String[] cities) {
 	      int answer = 0;
 	      LinkedList<String> qu = new LinkedList<String>();
