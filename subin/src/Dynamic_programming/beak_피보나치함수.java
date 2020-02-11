@@ -4,7 +4,7 @@ import java.util.*;
 
 public class beak_피보나치함수 {
 
-	
+	//35min
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
