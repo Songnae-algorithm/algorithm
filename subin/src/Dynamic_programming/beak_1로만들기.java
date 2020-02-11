@@ -16,8 +16,6 @@ public class beak_1로만들기 {
 		while(!qu.isEmpty()) {
 			n = qu.poll();
 			
-			System.out.println(qu);
-			
 			if(n == 1) {
 				System.out.println( dp[1] );
 				break;
