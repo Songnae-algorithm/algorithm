@@ -1,6 +1,8 @@
-import java.util.*;
+package Maze;
 
-class Review{
+import java.util.Scanner;
+
+class Codeup_성실한개미{
    
 	//Maze
 	//아니 이런문제로 한시간이나 쓰다니... 조건도 은근 많고...!

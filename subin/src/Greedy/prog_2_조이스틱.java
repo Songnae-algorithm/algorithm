@@ -3,7 +3,8 @@ package Greedy;
 import java.util.*;
 
 public class prog_2_조이스틱 {
-
+	
+	//fail....
     static public int solution(String name) {
         int answer = 0;
         int arr[] = new int[name.length()];
