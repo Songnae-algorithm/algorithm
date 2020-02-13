@@ -39,3 +39,7 @@ public class beak_회의실배정 {
 		System.out.println(answer);
 	}
 }
+
+
+//comparator 완벽 이해!!!!!
+//https://code0xff.tistory.com/18
