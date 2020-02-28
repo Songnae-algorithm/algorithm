@@ -1,4 +1,4 @@
-# 미완료
+#완료(다시 0회)
 import copy
 import sys
 sys.setrecursionlimit(100000)
@@ -18,9 +18,8 @@ dx = [0, 1, 0, -1]
 dy = [1, 0, -1, 0]
 maxList = []
 maxValue = 0
-count = 1
+answer = 1
 countList = []
-
 for i in range(len(myMap)):
     maxList.append(max(myMap[i]))
 maxValue = max(maxList)
@@ -33,13 +32,13 @@ for k in range(1, maxValue + 1):
             if tempMap[i][j] <= k:
                 tempMap[i][j] = 0 # -1이면 잠김
     
+    count = 0
     for x in range(len(tempMap)):
         for y in range(len(tempMap[x])):
             if tempMap[x][y] != 0: # 안잠긴 영역 and 방문 안한 영역
                 dfs(x, y, tempMap)
                 count += 1
                 
-    countList.append(count)
-    count = 1
+    answer = max(answer, count)
 
-print(max(countList))
+print(answer)
