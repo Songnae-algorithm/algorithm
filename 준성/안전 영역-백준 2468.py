@@ -9,9 +9,8 @@ def dfs(x, y, tempMap):
         newX = x + dx[i]
         newY = y + dy[i]
         if (0 <= newX < N) and (0 <= newY < N):
-            if tempMap[newX][newY] != 0 and tempMap[newX][newY] != -1:
+            if tempMap[newX][newY] != 0:
                 dfs(newX, newY, tempMap)
-    
 
 N = int(input())
 myMap = [list(map(int, input().split())) for _ in range(N)]
@@ -19,7 +18,7 @@ dx = [0, 1, 0, -1]
 dy = [1, 0, -1, 0]
 maxList = []
 maxValue = 0
-count = 0
+count = 1
 countList = []
 
 for i in range(len(myMap)):
@@ -32,15 +31,15 @@ for k in range(1, maxValue + 1):
     for i in range(len(tempMap)):
         for j in range(len(tempMap[i])):
             if tempMap[i][j] <= k:
-                tempMap[i][j] = -1 # -1이면 잠김
+                tempMap[i][j] = 0 # -1이면 잠김
     
     for x in range(len(tempMap)):
         for y in range(len(tempMap[x])):
-            if tempMap[x][y] != -1 and tempMap[x][y] != 0: # 안잠긴 영역 and 방문 안한 영역
+            if tempMap[x][y] != 0: # 안잠긴 영역 and 방문 안한 영역
                 dfs(x, y, tempMap)
                 count += 1
                 
     countList.append(count)
-    count = 0
+    count = 1
 
 print(max(countList))
