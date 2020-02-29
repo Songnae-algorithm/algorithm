@@ -57,7 +57,7 @@ public class boj_2486_안전영역 {
 					if (arr[i][j] > k && visit[i][j] == false) {
 						//k층보다 높고 방문 안했을 때 dfs를 돌기 
 
-						dfs(arr, visit, i, j, k);
+						dfs(arr, visit, i, j, k);//visit 말고 copy하는 배열을 새로 만들어서 해보자
 						cnt++;
 					}
 
