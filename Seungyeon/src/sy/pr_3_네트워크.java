@@ -1,3 +1,4 @@
+package sy;
 
 public class pr_3_네트워크 {
 
