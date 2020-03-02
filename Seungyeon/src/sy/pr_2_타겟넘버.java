@@ -1,6 +1,5 @@
 package sy;
 
-import java.util.*;
 
 public class pr_2_타겟넘버 {
 	static int answer = 0;
