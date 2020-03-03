@@ -36,26 +36,4 @@ public class beak_가장긴증가하는부분수열 {
 	}
 }
 
-//https://developer-mac.tistory.com/71
-
-/*
- 		int n = sc.nextInt();
-		
-		int arr[] = new int[n];
-		
-		for(int i=0; i<n; i++)
-			arr[i] = sc.nextInt();
-		
-		int max = arr[0]; int idx =0; int answer=0;
-		while(idx < n-1) {
-			if(max < arr[idx+1]){
-				max = arr[idx];
-				idx = idx+1;
-				answer++;
-			}
-			else
-				idx++;
-
-		}//while
- */
 
