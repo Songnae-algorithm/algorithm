@@ -22,7 +22,7 @@ public class boj_2178_미로탐색 {
 		Queue<Store> qu = new LinkedList<>();
 
 		qu.add(new Store(x, y, count));
-		arr[x][y] = 0;// 방문한곳은 0으로
+		// arr[x][y] = 0;// 방문한곳은 0으로
 
 		int dx[] = { -1, 1, 0, 0 };
 		int dy[] = { 0, 0, 1, -1 };
@@ -34,6 +34,13 @@ public class boj_2178_미로탐색 {
 			int b = s.y;// y
 			int cnt = s.cnt;
 			answer = cnt;
+
+			
+			if (a == arr.length - 1 && b == arr[1].length - 1) {
+
+				break;
+
+			}
 
 			for (int i = 0; i < 4; i++) {
 				int nx = a + dx[i];
