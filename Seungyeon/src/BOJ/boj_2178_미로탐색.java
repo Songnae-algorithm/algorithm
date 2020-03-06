@@ -5,7 +5,7 @@ import java.util.*;
 class Store {
 	int x;
 	int y;
-	int cnt;
+	int cnt = 0;
 
 	Store(int x, int y, int cnt) {
 		this.x = x;
@@ -15,14 +15,15 @@ class Store {
 }
 
 public class boj_2178_미로탐색 {
-	static int answer;
 
-	private static void bfs(int[][] arr, int x, int y, int count) {
+	static int answer = 0;
 
-		Queue<Store> qu = new LinkedList<>();
+	private static void bfs(int[][] arr, int a, int b, int count) {
 
-		qu.add(new Store(x, y, count));
-		// arr[x][y] = 0;// 방문한곳은 0으로
+		Queue<Store> qu = new LinkedList<Store>();
+
+		qu.add(new Store(a, b, 1));// 0,0,1
+		arr[0][0] = 0;// 방문한곳은 0으로
 
 		int dx[] = { -1, 1, 0, 0 };
 		int dy[] = { 0, 0, 1, -1 };
@@ -30,26 +31,25 @@ public class boj_2178_미로탐색 {
 		while (!qu.isEmpty()) {
 			Store s = qu.poll();
 
-			int a = s.x;// x
-			int b = s.y;// y
+			int x = s.x;// x
+			int y = s.y;// y
 			int cnt = s.cnt;
 			answer = cnt;
 
+			if (x == arr.length - 1 && y == arr[1].length - 1) {
 			
-			if (a == arr.length - 1 && b == arr[1].length - 1) {
-
 				break;
 
 			}
 
 			for (int i = 0; i < 4; i++) {
-				int nx = a + dx[i];
-				int ny = b + dy[i];
+				int nx = x + dx[i];
+				int ny = y + dy[i];
 
-				if (nx >= 0 && nx < b && ny >= 0 && ny < a && arr[nx][ny] == 1) {
+				if (nx >= 0 && nx < arr.length && ny >= 0 && ny < arr[1].length && arr[nx][ny] == 1) {
 
+					arr[nx][ny] = 0;// 방문한곳 0으로
 					qu.add(new Store(nx, ny, cnt + 1));// 다시 qu에 새로운 값 저장
-					arr[nx][ny] = 0;
 				}
 			}
 		}
@@ -60,14 +60,14 @@ public class boj_2178_미로탐색 {
 
 		Scanner sc = new Scanner(System.in);
 
-		int x = sc.nextInt();// 행
-		int y = sc.nextInt();// 열
+		int a = sc.nextInt();// 행
+		int b = sc.nextInt();// 열
 
-		int arr[][] = new int[x][y];
+		int arr[][] = new int[a][b];
 
-		for (int i = 0; i < x; i++) {
+		for (int i = 0; i < a; i++) {
 			String s = sc.next();
-			for (int j = 0; j < y; j++) {
+			for (int j = 0; j < b; j++) {
 				arr[i][j] = s.charAt(j) - '0';
 				// 붙여서 입력할때 이렇게 넣는거 알아두기
 
