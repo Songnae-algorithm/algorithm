@@ -1,5 +1,6 @@
 package String;
 
+//40min
 public class prog_3_가장긴펠린드롬 {
 
     static public int solution(String s){
