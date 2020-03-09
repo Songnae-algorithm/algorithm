@@ -43,6 +43,7 @@ public class boj_2606_바이러스 {
 				if (arr[p][i] == 1 && chk[i] == false) {// 1이고 방문안했으면 add
 					// 여기서 for문을 두번 안쓰는 이유!!!
 					// poll해준 p값이 행의값이 되기 때문!!!
+					
 					q.add(i);
 					chk[i] = true;
 					cnt++;
