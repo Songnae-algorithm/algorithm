@@ -23,7 +23,6 @@ public class boj_2178_미로탐색 {
 		Queue<Store> qu = new LinkedList<Store>();
 
 		qu.add(new Store(a, b, 1));// 0,0,1
-		arr[0][0] = 0;// 방문한곳은 0으로
 
 		int dx[] = { -1, 1, 0, 0 };
 		int dy[] = { 0, 0, 1, -1 };
