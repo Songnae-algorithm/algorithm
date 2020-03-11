@@ -4,6 +4,7 @@ import java.util.*;
 
 public class beak_문자열 {
 
+	//30min
     static public void main(String args[]){
         Scanner sc = new Scanner(System.in);
         
@@ -12,7 +13,7 @@ public class beak_문자열 {
              
         int count = 0;            	int min = 100;
         if(s[0].length() == s[1].length()){
-            for(int i=0; i<s.length; i++) {
+            for(int i=0; i<s[0].length(); i++) {
             	if(s[0].charAt(i) != s[1].charAt(i))
             		count++;
             }
@@ -37,10 +38,11 @@ public class beak_문자열 {
             		}
             	}//while
             	
-            	System.out.println(ss);
             	
             	for(int j=0; j<s[1].length(); j++) {
-                	if(ss.charAt(j) != s[1].charAt(j) || ss.charAt(j) == '*') {
+            		if(ss.charAt(j) == '*')
+            			continue;
+                	if(ss.charAt(j) != s[1].charAt(j)) {
                 		count++;
                 		
                 	}
