@@ -3,7 +3,8 @@ package BOJ;
 import java.util.*;
 
 public class boj_10773_제로 {
-	// 11:21
+	// 11:21시작
+	// 11;30 끝
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
