@@ -67,8 +67,7 @@ public class beak_벽부수고이동하기 {
 				
 				//visited[x][y] = 무한대, 0, 1 만 존재할 수 있고, p.d = 0,1 만 가능
 				if(nx>=0 && nx<n && ny>=0 && ny<m) {
-					
-					System.out.println(nx +" " + ny +" " +visited[nx][ny] + " " + p.d);
+//					System.out.println(nx +" " + ny +" " +visited[nx][ny] + " " + p.d);
 					
 					if(visited[nx][ny] > p.d) { //현재의 drill이 visited보다 작을때만 수행한다.
 						
