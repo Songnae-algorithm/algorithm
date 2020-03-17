@@ -2,6 +2,7 @@ package Dynamic_programming;
 
 import java.util.*;
 
+//1h
 class beak_스티커{
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
