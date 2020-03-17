@@ -2,8 +2,8 @@ package Dfs_Bfs;
 
 import java.util.*;
 
+//lh
 public class beak_촌수계산 {
-	
 	static class Pos{
 		int x;
 		int  cnt;
@@ -48,7 +48,7 @@ public class beak_촌수계산 {
 			for(int i=1; i<=n; i++) {
 				if(arr[i][0] == px && visited[arr[i][1]] == 0)
 					q.add(new Pos(arr[i][1], p.cnt+1));
-				else if(arr[i][1] == px && visited[arr[i][0]] ==0)
+				else if(arr[i][1] == px && visited[arr[i][0]] == 0)
 					q.add(new Pos(arr[i][0], p.cnt+1));
 			}
 			
