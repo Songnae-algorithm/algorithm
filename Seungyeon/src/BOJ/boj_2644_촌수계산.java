@@ -27,11 +27,6 @@ public class boj_2644_촌수계산 {
 
 		}
 
-//		for(int i=1;i<arr.length;i++) {
-//			for(int j=1;j<arr[1].length;j++) {
-//				System.out.print(arr[i][j]);
-//			}System.out.println();
-//		}
 
 		Queue<Integer> qu = new LinkedList<>();
 
@@ -41,7 +36,6 @@ public class boj_2644_촌수계산 {
 		while (!qu.isEmpty()) {// q가 비어있지 않을때까지
 			int p = qu.poll(); // 7을 빼서 저장 peek아니고 poll!!!!!!!!!!
 
-			System.out.println(p + "ppp");
 			if (p == b) {
 				break;
 			}
