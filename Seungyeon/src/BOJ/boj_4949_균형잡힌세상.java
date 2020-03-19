@@ -21,7 +21,7 @@ public class boj_4949_균형잡힌세상 {
 				if (s.charAt(i) == '(') { // (들어오면 입력
 					st.add('(');
 
-				} else if (s.charAt(i) == '[') {
+				} else if (s.charAt(i) == '[') {// [ 들어오면 입력
 					st.add('[');
 
 				} else if (s.charAt(i) == ']') {
