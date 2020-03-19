@@ -4,7 +4,7 @@ import java.util.*;
 
 public class boj_11866_요세푸스문제0 {
 
-	// 12:14
+	// 12:14 -30 //근데 왜 안맞는지 몰겠음__
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
