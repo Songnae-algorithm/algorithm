@@ -10,6 +10,7 @@ public class beak_로또 {
 				if(visited[i] == true)
 					System.out.print(arr[i] + " ");
 			}
+
 			System.out.println();
 			return ;
 		}
@@ -39,7 +40,7 @@ public class beak_로또 {
 			boolean visited[] = new boolean[size];
 			
 			comb(arr,visited, 0,size,6); // start, n, r
-	
+			System.out.println();
 		}//while
 		
 	}
