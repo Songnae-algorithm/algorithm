@@ -17,7 +17,7 @@ public class prog_3_여행경로 {
 			if(tic[i][0].equals(start) && !visited[i]) {
 				visited[i] = true;
 				dfs(tic,tic[i][1], s, visited, size+1);
-				visited[i] = false;
+				visited[i] = false; // visited 하나만 사용하기때문에 나오면서 false 해줘야한다
 			}
 		}
 		
@@ -31,7 +31,7 @@ public class prog_3_여행경로 {
     		if(tickets[i][0].equals("ICN")) {
     			visited[i] = true;
     			dfs(tickets, tickets[i][1], "ICN,",visited,1);
-    			visited[i] = false;
+    			visited[i] = false; // visited 하나만 사용하기때문에 나오면서 false 해줘야한다
     		}
     	}
     
