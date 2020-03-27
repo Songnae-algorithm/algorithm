@@ -2,7 +2,7 @@ package Test;
 
 public class test2 {
 
-	public static int solution(int money[][]) {
+	public static void solution(int money[][]) {
 		int answer = -1;
 
 		int sum = 0;
@@ -14,11 +14,11 @@ public class test2 {
 		int mon = sum / 2;
 
 		int hap = 0;
-		//5500º¸´Ù Ä¿Áö´Â ¼ø°£¿¡ ! 
+		// 5500ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ !
 		while (mon <= hap) {
-		
-			
-	
+
+		}
+
 	}
 
 	public static void main(String[] args) {

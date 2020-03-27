@@ -2,7 +2,7 @@ package Ex;
 
 import java.util.*;
 
-public class ¼ø¿­ {
+public class ìˆœì—´ {
 
 	public static void main(String[] args) {
 
@@ -15,7 +15,7 @@ public class ¼ø¿­ {
 
 		permutation(n, r, perArr, perchk);
 
-		// ¼ø¿­ (¼ø¼­ÀÖ°Ô ¹è¿­)
+		// Â¼Ã¸Â¿Â­ (Â¼Ã¸Â¼Â­Ã€Ã–Â°Ã” Â¹Ã¨Â¿Â­)
 
 
 	}
