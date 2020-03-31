@@ -8,13 +8,13 @@ public class beak_N과M_6 {
 
 	static int n;
 	static int m;
-	static LinkedList<Integer> numbers;
+	static LinkedList<Integer> result;
 	static StringBuilder sb;
-	static int arr[];
+	static LinkedList<Integer> numbers;
 	
 	public static void comb(int count) {
 		if(count == m) {
-			for(int i:numbers)
+			for(int i:result)
 				sb.append(i + " ");
 			
 			sb.append("\n");
@@ -22,15 +22,16 @@ public class beak_N과M_6 {
 		}
 		
 		for(int i=0; i<n; i++) {
-			if(numbers.contains(arr[i]))
+			if(result.contains(numbers.get(i)))
 				continue;
 			
-			if(numbers.size()!=0 && i<numbers.get(numbers.size()-1))
+			
+			if(result.size()!=0 && i <= numbers.indexOf(result.get(result.size()-1)))
 				continue;
 			
-			numbers.add(arr[i]);
+			result.add(numbers.get(i));
 			comb(count+1);
-			numbers.removeLast();
+			result.removeLast();
 			
 		}
 	}
@@ -44,12 +45,12 @@ public class beak_N과M_6 {
 		
 		sb = new StringBuilder();
 		numbers = new LinkedList<>();
-		arr = new int[n];
+		result = new LinkedList<>();
 		
 		for(int i=0; i<n; i++)
-			arr[i]=sc.nextInt();
+			numbers.add(sc.nextInt());
 		
-		Arrays.sort(arr);
+		numbers.sort(null);
 		
 		comb(0);
 		

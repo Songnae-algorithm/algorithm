@@ -1,8 +1,10 @@
 package Math;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Scanner;
 
-public class beak_N과M_5 {
+public class beak_N과M_7 {
 
 	static int n;
 	static int m;
@@ -12,22 +14,20 @@ public class beak_N과M_5 {
 	
 	public static void perm(int count) {
 		if(count == m) {
-			for(int i: result)
+			for(int i:result)
 				sb.append(i + " ");
 			
 			sb.append("\n");
-			return;
+			return ;
 		}
 		
 		for(int i=0; i<n; i++) {
-			if(result.contains(numbers.get(i)))
-				continue;
-			
 			result.add(numbers.get(i));
 			perm(count+1);
 			result.removeLast();
 		}
 	}
+	
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -48,5 +48,5 @@ public class beak_N과M_5 {
 		
 		System.out.println(sb.toString());
 	}
-	
 }
+
