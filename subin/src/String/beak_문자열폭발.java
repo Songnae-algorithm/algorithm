@@ -21,7 +21,7 @@ public class beak_문자열폭발 {
 			if(stk.peek() == pattern.charAt(0) &&stk.size() >= pattern.length()) {// 같은 경우에는
 				boolean ck = false;
 
-					for(int j=1 ;j<pattern.length(); j++) {
+					for(int j=0; j<pattern.length(); j++) {
 						if(pattern.charAt(j) != stk.get(stk.size()-1-j)) {
 							ck = true;
 							break;
