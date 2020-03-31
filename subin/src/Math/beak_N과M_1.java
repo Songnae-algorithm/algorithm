@@ -2,6 +2,7 @@ package Math;
 
 import java.util.*;
 
+//순열 (중복x)
 public class beak_N과M_1 {
 
 	public static void perm(LinkedList<Integer> list, int chk[], int n, int r) {

@@ -2,6 +2,7 @@ package Math;
 
 import java.util.*;
 
+//순열 (중복 O)
 public class beak_N과M_3 {
 	static int n;
 	static int m;

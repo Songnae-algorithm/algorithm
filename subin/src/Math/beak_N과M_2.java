@@ -2,6 +2,7 @@ package Math;
 
 import java.util.Scanner;
 
+//조합 (중복 x)
 public class beak_N과M_2 {
 
 	public static void comb(int arr[], boolean v[], int start, int n, int r) {

@@ -2,32 +2,31 @@ package Math;
 
 import java.util.*;
 
+public class beak_N과M_5 {
 
-//조합 (중복 O)
-public class beak_N과M_4 {
 	static int n;
 	static int m;
-	static StringBuilder sb;
 	static LinkedList<Integer> numbers;
-	//nCm
-	public static void comb(int count) {
+	static StringBuilder sb;
+	static int arr[];
+	
+	public static void perm(int count) {
 		if(count == m) {
-			for(int i:numbers)
+			for(int i: numbers)
 				sb.append(i + " ");
-			sb.append("\n");
 			
+			sb.append("\n");
 			return;
 		}
 		
 		for(int i=0; i<n; i++) {
-			if(numbers.size() !=0 && i<numbers.get(numbers.size()-1)-1)
+			if(numbers.contains(arr[i]))
 				continue;
 			
-			numbers.add(i+1);
-			comb(count+1);
+			numbers.add(arr[i]);
+			perm(count+1);
 			numbers.removeLast();
 		}
-		
 	}
 	
 	public static void main(String[] args) {
@@ -36,12 +35,18 @@ public class beak_N과M_4 {
 		n = sc.nextInt();
 		m = sc.nextInt();
 		
-		numbers = new LinkedList<>();
 		sb = new StringBuilder();
+		numbers = new LinkedList<>();
+		arr = new int[n];
 		
-		comb(0);
+		for(int i=0; i<n; i++)
+			arr[i]=sc.nextInt();
 		
-		System.out.print(sb.toString());
+		Arrays.sort(arr);
 		
+		perm(0);
+		
+		System.out.println(sb.toString());
 	}
+	
 }
