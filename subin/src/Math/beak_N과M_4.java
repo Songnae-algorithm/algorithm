@@ -20,7 +20,7 @@ public class beak_N과M_4 {
 		}
 		
 		for(int i=0; i<n; i++) {
-			if(numbers.size() !=0 && i<numbers.get(numbers.size()-1)-1)
+			if(numbers.size() !=0 && i<numbers.getLast()-1)//중복을 위해서는 자기자신도 돌아야 하기때문에 -1
 				continue;
 			
 			numbers.add(i+1);

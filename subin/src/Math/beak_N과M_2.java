@@ -1,44 +1,50 @@
 package Math;
 
-import java.util.Scanner;
+import java.util.*;
 
 //조합 (중복 x)
 public class beak_N과M_2 {
 
-	public static void comb(int arr[], boolean v[], int start, int n, int r) {
-		if(r == 0) {
-			for(int i=0; i<n; i++) {
-				if(v[i] == true)
-					System.out.print(arr[i] + " ");
-			}
-			System.out.println();
-			return ;
+	static int n;
+	static int m;
+	static StringBuilder sb;
+	static LinkedList<Integer> numbers;
+	
+	public static void comb(int count) {
+		if(count == m) {
+			for(int i: numbers)
+				sb.append(i + " ");
+			
+			sb.append("\n");	
+			return;
 		}
 		
-		for(int i=start; i<n ;i++) {
-			v[i] = true;
-			comb(arr, v, i+1, n, r-1);
-			v[i] = false;
+		for(int i=0; i<n; i++) {
+			if(numbers.contains(i+1))
+				continue;
+			
+			if(!numbers.isEmpty() && i<numbers.getLast()) // i가 numbers의 맨 끝 값보다 작을때는 continue 
+				continue;
+			
+			numbers.add(i+1);
+			comb(count+1);
+			numbers.removeLast();
 		}
-		
 	}
 	
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
-		int m = sc.nextInt();
+		n = sc.nextInt();
+		m = sc.nextInt();
 		
-		int arr[] = new int[n];
+		sb = new StringBuilder();
+		numbers = new LinkedList<>();
 		
-		for(int i=0; i<n; i++)
-			arr[i] = i+1;
-
-		boolean v[] = new boolean[n];
+		comb(0);
 		
-		comb(arr,v,0,n,m);
-		
+		System.out.println(sb.toString());
 	}
 }
 

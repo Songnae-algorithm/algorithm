@@ -5,38 +5,43 @@ import java.util.*;
 //순열 (중복x)
 public class beak_N과M_1 {
 
-	public static void perm(LinkedList<Integer> list, int chk[], int n, int r) {
-		if(list.size() == r) {
-			for(int i: list)
-				System.out.print((i+1) + " ");
+	static int n;
+	static int m;
+	static StringBuilder sb;
+	static LinkedList<Integer> numbers;
+	
+	public static void perm(int count) {
+		if(count == m) {
+			for(int i:numbers)
+				sb.append(i + " ");
 			
-			System.out.println();
+			sb.append("\n");
 			return;
 		}
 		
-		for(int i = 0; i<n; i++) {
-			if(chk[i] == 0) {
-				chk[i] = 1;
-				list.add(i);
-				perm(list, chk, n, r);
-				list.removeLast();
-				chk[i] = 0;
-			}
-		
+		for(int i=0;i<n; i++) {
+			if(numbers.contains(i+1))
+				continue;
+			
+			numbers.add(i+1);
+			perm(count+1);
+			numbers.removeLast();
 		}
 		
 	}
+
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
-		int m = sc.nextInt();
+		n = sc.nextInt();
+		m = sc.nextInt();
 		
-		int chk[] = new int[n];
-		LinkedList<Integer> list = new LinkedList<>();
+		sb = new StringBuilder();
+		numbers = new LinkedList<>();
 		
-		perm(list, chk, n,m);
-		
+		perm(0);
+			
+		System.out.println(sb.toString());
 	}
 }

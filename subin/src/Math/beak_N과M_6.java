@@ -25,8 +25,8 @@ public class beak_N과M_6 {
 			if(result.contains(numbers.get(i)))
 				continue;
 			
-			
-			if(result.size()!=0 && i <= numbers.indexOf(result.get(result.size()-1)))
+			//result가 가진 끝값의 number인덱스가 i이상이어야 한다.
+			if(result.size()!=0 && i < numbers.indexOf(result.getLast()))
 				continue;
 			
 			result.add(numbers.get(i));

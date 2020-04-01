@@ -7,22 +7,22 @@ public class beak_N과M_3 {
 	static int n;
 	static int m;
 	static StringBuilder sb;
-	static int arr[];
+	static LinkedList<Integer> numbers;
 	
-	//nPm
-	public static void perm(int x) { // 시작 idx
-		if(x == m) {
-			for(int i=0; i<m; i++)
-				sb.append(arr[i] + " ");
+	public static void perm(int count) {
+		if(count == m) {
+			for(int i:numbers)
+				sb.append(i+" ");
 			
 			sb.append("\n");
+			return;
 		}
 		
-		else {
-			for(int i=1; i<=n; i++) { // idx에 맞게 1부터 n까지 넣기
-				arr[x] = i; // x번째에 i넣기
-				perm(x+1);
-			}
+		for(int i=0; i<n; i++) {
+			//중복 허용이니까
+			numbers.add(i+1);
+			perm(count+1);
+			numbers.removeLast();
 		}
 	}
 	
@@ -32,33 +32,11 @@ public class beak_N과M_3 {
 		n = sc.nextInt();
 		m = sc.nextInt();
 		
-		arr = new int[n];
-		
 		sb = new StringBuilder();
+		numbers = new LinkedList<>();
 		
 		perm(0); // 시작 idx를 넣는다
 		
 		System.out.println(sb.toString());
 	}
 }
-
-
-/*
-public static void perm(LinkedList<Integer> list, int n, int m) {
-if(list.size() == m) {
-	for(int i : list) {
-		System.out.print((i+1) + " ");
-	}
-	System.out.println();
-	
-	return;
-}
-
-for(int i= 0; i<n; i++) {
-		list.add(i);
-		perm(list, n, m);
-		list.removeLast();
-}
-
-}
-*/
