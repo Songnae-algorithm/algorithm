@@ -2,36 +2,29 @@ package Math;
 
 import java.util.*;
 
-//조합 (중복 x)
-public class beak_N과M_2 {
-
+//순열 (중복 O)
+public class beak_N과M_3 {
 	static int n;
 	static int m;
 	static StringBuilder sb;
 	static LinkedList<Integer> numbers;
 	
-	public static void comb(int count) {
+	public static void perm(int count) {
 		if(count == m) {
-			for(int i: numbers)
-				sb.append(i + " ");
+			for(int i:numbers)
+				sb.append(i+" ");
 			
-			sb.append("\n");	
+			sb.append("\n");
 			return;
 		}
 		
 		for(int i=0; i<n; i++) {
-			if(numbers.contains(i+1))
-				continue;
-			
-			if(!numbers.isEmpty() && i<numbers.getLast()) // i가 numbers의 맨 끝 값보다 작을때는 continue 
-				continue;
-			
+			//중복 허용이니까
 			numbers.add(i+1);
-			comb(count+1);
+			perm(count+1);
 			numbers.removeLast();
 		}
 	}
-	
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -42,11 +35,8 @@ public class beak_N과M_2 {
 		sb = new StringBuilder();
 		numbers = new LinkedList<>();
 		
-		comb(0);
+		perm(0); // 시작 idx를 넣는다
 		
 		System.out.println(sb.toString());
 	}
 }
-
-
-//https://limkydev.tistory.com/186  -> 순열, 중복순열, 조합, 중복조합

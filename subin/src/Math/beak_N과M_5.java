@@ -2,36 +2,32 @@ package Math;
 
 import java.util.*;
 
-//조합 (중복 x)
-public class beak_N과M_2 {
+public class beak_N과M_5 {
 
 	static int n;
 	static int m;
+	static LinkedList<Integer> result;
 	static StringBuilder sb;
 	static LinkedList<Integer> numbers;
 	
-	public static void comb(int count) {
+	public static void perm(int count) {
 		if(count == m) {
-			for(int i: numbers)
+			for(int i: result)
 				sb.append(i + " ");
 			
-			sb.append("\n");	
+			sb.append("\n");
 			return;
 		}
 		
 		for(int i=0; i<n; i++) {
-			if(numbers.contains(i+1))
+			if(result.contains(numbers.get(i)))
 				continue;
 			
-			if(!numbers.isEmpty() && i<numbers.getLast()) // i가 numbers의 맨 끝 값보다 작을때는 continue 
-				continue;
-			
-			numbers.add(i+1);
-			comb(count+1);
-			numbers.removeLast();
+			result.add(numbers.get(i));
+			perm(count+1);
+			result.removeLast();
 		}
 	}
-	
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -41,12 +37,16 @@ public class beak_N과M_2 {
 		
 		sb = new StringBuilder();
 		numbers = new LinkedList<>();
+		result = new LinkedList<>();
 		
-		comb(0);
+		for(int i=0; i<n; i++)
+			numbers.add(sc.nextInt());
+		
+		numbers.sort(null);
+		
+		perm(0);
 		
 		System.out.println(sb.toString());
 	}
+	
 }
-
-
-//https://limkydev.tistory.com/186  -> 순열, 중복순열, 조합, 중복조합
