@@ -1,4 +1,4 @@
-package Boj;
+package Permutation;
 
 import java.util.*;
 

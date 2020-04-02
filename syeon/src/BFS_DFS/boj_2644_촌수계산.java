@@ -1,4 +1,4 @@
-package Boj;
+package BFS_DFS;
 
 import java.util.*;
 
