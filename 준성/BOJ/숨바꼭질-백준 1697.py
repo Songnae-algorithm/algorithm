@@ -1,26 +1,26 @@
-#완료(다시 0회)
+#완료(다시 1회)
 from collections import deque
 
-def bfs(v):
-    count = 0
-    q = deque([[v, count]])
+def bfs(v, target):
+    q = deque([[v, 0]])
+    minCount = 0
     while q:
-        v = q.popleft()
-        e = v[0]
-        count = v[1]
-        if not visited[e]:
-            visited[e] = True
-            if e == K:
+        value = q.popleft()
+        v = value[0]
+        count = value[1]
+        
+        if not visited[v]:
+            visited[v] = True
+            if v == target:
                 return count
-            count += 1
-            if (e * 2) <= 100000:
-                q.append([e * 2, count])
-            if (e + 1) <= 100000:
-                q.append([e + 1, count])
-            if (e - 1) >= 0:
-                q.append([e - 1, count])
-    return count
-                
-N, K = map(int, input().split())
+
+            if v * 2 <= 100000:
+                q.append([v*2, count+1])
+            if v - 1 >= 0:
+                q.append([v-1, count+1])
+            if v + 1 <= 100000:
+                q.append([v+1, count+1])
+    
+n, k = map(int, input().split())
 visited = [False] * 100001
-print(bfs(N))
+print(bfs(n, k))
