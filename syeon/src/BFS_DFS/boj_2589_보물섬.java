@@ -16,7 +16,7 @@ class Node {
 }
 
 public class boj_2589_보물섬 {
-	// 2020.04.02 16:20 start
+	// 2020.04.02 16:20 start , 17;35 끝...ㅠㅠ 
 
 	static char[][] arr;
 	static boolean[][] visit;
