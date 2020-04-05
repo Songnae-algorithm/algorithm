@@ -39,13 +39,8 @@ public class prog_3_여행경로 {
     
     	
     	list.sort(null);
-    	String real[] = list.get(0).split(",");
-    	String answer[] = new String[real.length];
     	
-    	for(int i=0;i<answer.length; i++)
-    		answer[i] = real[i];
-    	
-        return answer;
+        return list.get(0).split(",");
     }
 	
 	public static void main(String[] args) {
