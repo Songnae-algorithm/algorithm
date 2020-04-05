@@ -1,4 +1,4 @@
-package Boj;
+package DP;
 
 import java.util.*;
 

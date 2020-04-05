@@ -35,6 +35,7 @@ public class pr3_여행경로 {
 
 		Queue<String> qu = new LinkedList<>();
 		list.add("ICN");
+		int cnt = 0;
 
 		for (int i = 0; i < tickets.length; i++) {
 			if (tickets[i][0].equals("ICN")) {// icn이랑 같을 때
@@ -43,7 +44,7 @@ public class pr3_여행경로 {
 				chk[i] = true;
 				list.add(tickets[i][1]);
 
-				while (!qu.isEmpty()) {
+				while (!qu.isEmpty() && cnt != tickets.length) {
 					String s = qu.poll(); // 꺼낸 값
 
 					for (int j = 0; j < tickets.length; j++) {
@@ -51,18 +52,18 @@ public class pr3_여행경로 {
 						if (tickets[j][0].equals(s) && chk[j] == false) {
 
 							chk[j] = true;
-							
+
 							list.add(tickets[j][1]);
 							qu.add(tickets[j][1]);
-
+							cnt++;
 						}
 					}
 				}
 			}
 		}
 
-		for(int i=0;i<answer.length;i++) {
-			answer[i]+=list.get(i);
+		for (int i = 0; i < answer.length; i++) {
+			answer[i] += list.get(i);
 		}
 		System.out.println(list);
 		return answer;

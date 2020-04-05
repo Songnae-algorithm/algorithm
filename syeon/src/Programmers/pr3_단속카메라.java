@@ -18,7 +18,7 @@ public class pr3_단속카메라{
 
 					if (min > routes[i][1] && chk[i] == false) {
 						min = routes[i][1];
-						mini = i;// ÃÖ¼Ú°ªÀÏ‹šÀÇ i
+						mini = i;
 
 					}
 
