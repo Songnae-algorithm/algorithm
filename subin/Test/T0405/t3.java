@@ -3,8 +3,6 @@ package T0405;
 import java.util.*;
 
 public class t3 {
-
-	
 	
     public int solution(String road, int n) {
         int answer = -1;

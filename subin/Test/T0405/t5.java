@@ -3,7 +3,7 @@ package T0405;
 import java.util.*;
 
 
-//25
+//25 min
 public class t5 {
     public static String[] solution(String[][] dataSource, String[] tags) {
  

@@ -42,6 +42,10 @@ public class t1 {
         			
         			an++;
         		}
+        		
+        		//헉... 이거 안해줘서 틀림..ㅎ
+        		else
+        			stk.push(c);
         	}
         	
         	else if(c == '(' || c == '{' || c == '[' || c=='<') {
@@ -62,10 +66,8 @@ public class t1 {
     
     public static void main(String[] args) {
 		
-    	String input = ">_<";
+    	String input = "([)]]";
     	
     	System.out.println(solution(input));
-    	
-    	
 	}
 }
