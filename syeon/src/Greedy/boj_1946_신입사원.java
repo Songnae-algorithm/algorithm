@@ -19,8 +19,7 @@ public class boj_1946_신입사원 {
 				int idx = sc.nextInt(); // 서류점수를 인덱스로 이용한다.
 				arr[idx] = sc.nextInt();
 			}
-			
-			
+
 			int midx = 0;
 			for (int j = 0; j < arr.length; j++) {
 				if (arr[j] == 1) {
@@ -28,8 +27,9 @@ public class boj_1946_신입사원 {
 				}
 			}
 			// 면접순위 1인것의 인덱스
-			
-			//신입사원
+
+			// 신입사원ㅀㅀㅀㄹ
+			System.out.println("바꿈");
 
 			for (int j = b; j >= 2; j--) {
 				if (arr[j] > arr[1] || j > midx) { // arr[1], 즉 서류순위가 1인것의 값보다 크거나, index의 값이 midx보다(면접순위)보다 클 때 true로
