@@ -10,47 +10,40 @@ public class line_나잡아봐라 {
 		int co = sc.nextInt();
 		int br = sc.nextInt();
 		
-		int pos[] = new int[400000]; // day 취급
+		int pos[] = new int[200001]; // day 취급
 		int answer = -1;
 		
 		Queue<Integer> qu = new LinkedList<>();
 		
 		qu.add(br);
 		
-		int cony[] = new int[100000];
-		
-		for(int i=1; i<cony.length; i++) {
-			cony[i] = cony[i-1] + i;
-		}
-		
-		
-		int day = 0;
-		while(!qu.isEmpty() && day<100) {
+		while(true) {
 			int num = qu.poll();
 			
-			if(num == cony[num]) {
+			int time = pos[num];
+			int cony = 0;
+			for(int i=1; i<=time; i++)
+				cony += i;
+			
+			if(num == co + cony) {
 				answer = pos[num];
 				break;
 			}
 			
-			if(num >=0 && num<400000) {
-				if(num-1 >=0 && num-1<400000) {
-					pos[num-1] = pos[num]+1;
-					qu.add(num-1);
-				}
+			int next=0;
+			for(int i=0; i<3; i++) {
+				if(i==0)
+					next = num-1;
+				if(i==1)
+					next = num+1;
+				if(i==2)
+					next = num*2;
 				
-				if(num+1 >=0 && num+1<400000) {
-					pos[num+1] = pos[num]+1;
-					qu.add(num+1);
-				}
-				
-				if(num*2 >=0 && num*2<400000) {
-					pos[num*2] = pos[num]+1;
-					qu.add(num*2);
+				if(next>=0 && next<200001 && pos[next] ==0) {
+					qu.add(next);
+					pos[next] = pos[num]+1;
 				}
 			}
-			
-			day++;
 		}
 		
 		System.out.println("answer " + answer);

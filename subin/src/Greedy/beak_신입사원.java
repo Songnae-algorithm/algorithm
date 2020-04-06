@@ -22,26 +22,20 @@ public class beak_신입사원 {
 			Arrays.sort(arr, new Comparator<int[]>() {
 				@Override
 				public int compare(int a[], int b[]) {
-					return a[0] - b[0];
+					return a[0] - b[0]; // 0번쨰 행으로 오룸차순
 				}
 			}); // 오름차순 정렬
 
 			int answer = 0;
+			int min = Integer.MAX_VALUE;
 			
-			for(int j =arr.length-1; j>=0; j--) {
-				int now = arr[j][1];
-				boolean ck = false;
-				
-				for(int k = j-1; k>=0; k--) {
-					if(now > arr[k][1]) {//나보다 작은게 하나라도 있으면
-						ck =true;
-						break;
-					}
-				}
-				
-				if(ck == false)
+			for(int j=0; j<arr.length; j++) {
+				if(min>arr[j][1]) {
+					min = arr[j][1];
 					answer++;
+				}
 			}
+			
 			
 			System.out.println(answer);
 		}
