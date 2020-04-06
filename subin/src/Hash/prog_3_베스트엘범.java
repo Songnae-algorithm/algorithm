@@ -3,103 +3,152 @@ package Hash;
 import java.util.*;
 
 public class prog_3_베스트엘범 {
+	static class Pos{
+		int song;
+		int idx;
+		
+		Pos(int song, int idx){
+			this.song = song;
+			this.idx = idx;
+		}
+	}
+	
+	static public int[] calculation(LinkedList<Pos> tm) {
+		int answer[][] = new int[2][2];
+		boolean ck = false;
+		
+		for(int i=0; i<tm.size(); i++) {
+			int tsong = tm.get(i).song;
+			int tidx = tm.get(i).idx;
+			
+			
+			if(answer[0][0] ==0 && answer[1][0] == 0) {
+				answer[0][0] = tsong;
+				answer[0][1] = tidx;
+			}
+			else if(answer[0][0] !=0 && answer[1][0] ==0) {
+				ck = true;
 
+				if(answer[0][0] == tsong) {
+					if(answer[0][1] < tidx) {
+
+						answer[1][0] = answer[0][0];
+						answer[1][1] = answer[0][1];
+						answer[0][0] = tsong;
+						answer[0][1] = tidx;
+					}
+					else {
+						answer[1][0] = tsong;
+						answer[1][1] = tidx;
+					}
+				}
+				
+				else if(answer[0][0] < tsong) {
+					answer[1][0] = tsong;
+					answer[1][1] = tidx;
+				}
+				else {
+					answer[1][0] = answer[0][0];
+					answer[1][1] = answer[0][1];
+					answer[0][0] = tsong;
+					answer[0][1] = tidx;
+				}
+			}
+			
+			else if(answer[0][0] !=0 && answer[1][0] !=0) {
+				if(tsong <answer[0][0])
+					continue;
+				else if(tsong>=answer[0][0] && tsong<answer[1][0]) {
+					if(tsong == answer[0][0]){
+						if(tidx > answer[0][1])
+							continue;
+					}
+					answer[0][0] = tsong;
+					answer[0][1] = tidx;
+				}
+				else if(tsong>= answer[1][0]) {
+					if(tsong == answer[1][0]){
+						if(tidx> answer[1][1]) {
+							answer[1][0] = answer[1][0];
+							answer[1][1] = answer[1][1];
+							answer[0][0] = tsong;
+							answer[0][1] = tidx;
+						}
+					}
+					else {
+						answer[0][0] = answer[1][0];
+						answer[0][1] = answer[1][1];
+						answer[1][0] = tsong;
+						answer[1][1] = tidx;
+					}
+				}
+			}
+		}
+		
+		if(ck == false) {
+			int realan[] = new int[1];
+			realan[0] = answer[0][1];
+			
+			return realan;
+		}
+		
+		else {
+			int realan[] = new int[2];
+			realan[0] = answer[1][1];
+			realan[1] = answer[0][1];
+			
+			return realan;
+		}
+	}
+	
     static public int[] solution(String[] genres, int[] plays) {
-       int[] answer = {};
+        HashMap<String, Integer> sum = new HashMap<>();
         
-       HashMap<String, Integer> map1 = new HashMap<String,Integer>(); //제일 큰 장르 수
-       HashMap<String, Integer> map2 = new HashMap<String,Integer>(); //고유번호_장르, 플레이 수
+        String ya[] = new String[genres.length];
         
-       for(int i=0;i<genres.length; i++) {
-    	   //장르를 key, 모든 값을 다 더한걸 value
-    	   if(map1.containsKey(genres[i]))
-        		map1.put(genres[i], plays[i] + map1.get(genres[i]));
+        for(int i=0; i<genres.length; i++) {
+        	ya[i] = genres[i] + "," + plays[i] + "," + i;
+        	if(sum.containsKey(genres[i]))
+        		sum.put(genres[i], sum.get(genres[i]) + plays[i]);
         	else
-        		map1.put(genres[i], plays[i]);
-        	//고유번호_장르를 key, 값을 value
-    	    map2.put(i+"_"+genres[i], plays[i]);
+        		sum.put(genres[i], plays[i]);
         }
-       
-       //map1 내림차순 정렬
-       List<Map.Entry<String, Integer>> list0 = new LinkedList<>(map1.entrySet());
-       
-       Collections.sort(list0,new Comparator<Map.Entry<String, Integer>>(){
-    	   @Override
-    	   public int compare(Map.Entry<String, Integer>o1,Map.Entry<String, Integer>o2) {
-    		   int comparision = (o1.getValue()- o2.getValue())* -1;
-    		   return comparision == 0? o1.getKey().compareTo(o2.getKey()) : comparision;
-    	   }
-       });
-       
-       Map<String, Integer> sortedMap1 = new LinkedHashMap<>();
-       for(Iterator<Map.Entry<String, Integer>> iter = list0.iterator(); iter.hasNext();) {
-    	   Map.Entry<String, Integer> entry = iter.next();
-    	   sortedMap1.put(entry.getKey(),entry.getValue());
-       }
-       
-       //map2 내림차순 정렬
-       List<Map.Entry<String, Integer>> list = new LinkedList<>(map2.entrySet());
-       
-       Collections.sort(list,new Comparator<Map.Entry<String, Integer>>(){
-    	   @Override
-    	   public int compare(Map.Entry<String, Integer>o1,Map.Entry<String, Integer>o2) {
-    		   int comparision = (o1.getValue()- o2.getValue())* -1;
-    		   return comparision == 0? o1.getKey().compareTo(o2.getKey()) : comparision;
-    	   }
-       });
-       
-       Map<String, Integer> sortedMap = new LinkedHashMap<>();
-       for(Iterator<Map.Entry<String, Integer>> iter = list.iterator(); iter.hasNext();) {
-    	   Map.Entry<String, Integer> entry = iter.next();
-    	   sortedMap.put(entry.getKey(),entry.getValue());
-       }
-       
-       
-       ///여기서부터 찐답!!!!!!!!!!!!!!!
-       List<String> last_list = new LinkedList<>();
-       List<String> idx_list = new LinkedList<>();
-       PriorityQueue<Integer> answer_list = new PriorityQueue<>(Comparator.reverseOrder());
-       
-       //정렬된 map1의 이름을 정렬된 map2가 key값에 포함하고 있다면!
-       Iterator<String> keys = sortedMap1.keySet().iterator();
-       while(keys.hasNext()) {
-    	   String key = keys.next();
-		   
-    	   Iterator<String> keyss = sortedMap.keySet().iterator();
-		   
-    	   while(keyss.hasNext()) {
-    		   keyss.next();
-    		   for(int i=0; i<sortedMap.size(); i++) {
-    			   String a = i+"_"+key;
-	    		   
-	    		   if(sortedMap.get(a) != null) {
-	   			   System.out.println("i= " + i +" value = " + sortedMap.get(a) +" key = " + a);
-	    			   String s[] = a.split("_");
-	    			   idx_list.add(s[0]);
-	    			   answer_list.add(sortedMap.get(a));
-	    		   }
-    		   }//for
-    	   }//while
-    	   
-    	   System.out.println(answer_list);
-    	   
-		   //다 끝나고 나가기 전에 list 새로 만들어서 reverseOrder만들고 한개면 _앞까지 끊어서 넣고 끊어서 넣기
-		   int j = 0;
-		   while(!answer_list.isEmpty() && j<=1) {
-			   last_list.add(idx_list.remove(0) +" " +answer_list.poll());
-			   j++;
-		   }
-		   
-		   answer_list.clear();
-       }
-       
-       System.out.println(last_list);
-        return answer;
-    }	
+        
+        LinkedList<String> sorted = new LinkedList<>();
+        for(String key: sum.keySet())
+        	sorted.add(sum.get(key) + "," + key);
+        
+        Collections.sort(sorted, Collections.reverseOrder());
+        
+        LinkedList<Integer> answer = new LinkedList<>();
+        
+        for(int i=0; i<sorted.size(); i++) {
+        	String real[] = sorted.get(i).split(",");
+        	LinkedList<Pos> tm = new LinkedList<Pos>();
+        	
+        	for(int j=0; j<genres.length; j++) {
+        		String split[] = ya[j].split(",");
+        		if(ya[j].contains(real[1])) {
+        			tm.add(new Pos(Integer.parseInt(split[1]), Integer.parseInt(split[2])));
+        		}
+        	}
+        	
+        	int two[] = calculation(tm);
+        	
+        	for(int k=0; k<two.length; k++)
+        		answer.add(two[k]);
+        }
+        
+        return answer.stream().mapToInt(i->i).toArray();
+    }
 	
 	public static void main(String[] args) {
-		String g[] = {"cl","pop","cl","cl","pop"};
-		int p[] = {500,600,150,800,2500};
-		solution(g,p);
+		String g[] = {"classic", "pop","pop", "pop", "classic", "classic", "hip"};
+		int p[] = {500,500, 600, 600, 150, 800, 50000};
+		
+		int sol[] = solution(g,p);
+		
+		for(int i=0; i<sol.length; i++)
+			System.out.println(sol[i]);
 	}
 }
