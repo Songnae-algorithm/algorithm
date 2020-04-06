@@ -8,44 +8,46 @@ public class boj_1946_신입사원 {
 		Scanner sc = new Scanner(System.in);
 
 		int a = sc.nextInt();
-		int b = sc.nextInt();
 
 		for (int i = 0; i < a; i++) {
-
-			ArrayList<Integer> arr1 = new ArrayList<>();
-			ArrayList<Integer> arr2 = new ArrayList<>();
+			int b = sc.nextInt();
+			int arr[] = new int[b + 1];
+			boolean chk[] = new boolean[b + 1];
+			int answer = 0;
 
 			for (int j = 0; j < b; j++) {
-
-				arr1.add(sc.nextInt());
-				arr2.add(sc.nextInt());
-
+				int idx = sc.nextInt(); // 서류점수를 인덱스로 이용한다.
+				arr[idx] = sc.nextInt();
 			}
-
-			int fir = arr1.indexOf(1);
-			int m = arr2.get(fir);
-
-			for (int j = 0; j < arr2.size(); j++) {
-				if (arr2.get(j) > m) {
-					arr1.remove(j);
-					arr2.remove(j);
-					System.out.println(j);
+			
+			
+			int midx = 0;
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[j] == 1) {
+					midx = j;
 				}
 			}
-			System.out.println(arr1 + " " + arr2);
-			int fir2 = arr2.indexOf(1);
-			int m2 = arr1.get(fir2);
+			// 면접순위 1인것의 인덱스
+			
+			//신입사원
 
-			for (int j = 0; j < arr1.size(); j++) {
-				if (arr1.get(j) > m2) {
-					arr1.remove(j);
-					arr2.remove(j);
+			for (int j = b; j >= 2; j--) {
+				if (arr[j] > arr[1] || j > midx) { // arr[1], 즉 서류순위가 1인것의 값보다 크거나, index의 값이 midx보다(면접순위)보다 클 때 true로
+					// 바꿔줌
+					chk[j] = true;
 				}
-			}
 
-			System.out.println(arr1.size());
+			}
+			for (int j = 1; j < chk.length; j++) {
+				if (chk[j] == false) {
+					answer++;
+				}
+			} // false인 경우 answer ++;
+			System.out.println(answer);
 		} // here
 
 	}
 
 }
+
+//왜 틀렸을까요 ? 

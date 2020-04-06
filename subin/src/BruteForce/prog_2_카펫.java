@@ -1,6 +1,6 @@
 package BruteForce;
 
-public class prog_2_ì¹´íŽ« {
+public class prog_2_Ä«Æê {
 
    static public int[] solution(int brown, int red) {
         int[] answer = new int[2];
