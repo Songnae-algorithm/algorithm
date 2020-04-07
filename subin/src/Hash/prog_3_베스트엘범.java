@@ -143,8 +143,8 @@ public class prog_3_베스트엘범 {
     }
 	
 	public static void main(String[] args) {
-		String g[] = {"classic", "pop","pop", "pop", "classic", "classic", "hip"};
-		int p[] = {500,500, 600, 600, 150, 800, 50000};
+		String g[] = {"cl", "po","cl", "po", "cl", "cl"};
+		int p[] =    {400, 600, 150, 2500, 500, 500};
 		
 		int sol[] = solution(g,p);
 		
