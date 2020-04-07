@@ -26,9 +26,10 @@ public class line01 {
 			}
 
 			else if (inputString.charAt(i) == ']') {
-				if (!st.isEmpty() && st.peek() == '[') {
+				if (!st.isEmpty() && st.contains('[')) { //마지막게 아니고 포함 !!!!! 
 
-					st.pop();
+					int idx = st.indexOf('['); // stack 의 인덱스를 가져와서 제거
+					st.remove(idx);
 					answer++;
 				} else {
 					st.add(']');
@@ -36,25 +37,28 @@ public class line01 {
 				}
 
 			} else if (inputString.charAt(i) == ')') {
-				if (!st.isEmpty() && st.peek() == '(') {
-					st.pop();
+				if (!st.isEmpty() && st.contains('(')) {
+					int idx = st.indexOf('(');
+					st.remove(idx);
 					answer++;
 				} else {
 					st.add(')');
 					break;
 				}
 			} else if (inputString.charAt(i) == '}') {
-				if (!st.isEmpty() && st.peek() == '{') {
-					st.pop();
+				if (!st.isEmpty() && st.contains('{')) {
+					int idx = st.indexOf('{');
+					st.remove(idx);
+
 					answer++;
 				} else {
 					st.add('}');
 					break;
 				}
 			} else if (inputString.charAt(i) == '>') {
-				if (!st.isEmpty() && st.peek() == '<') {
-
-					st.pop();
+				if (!st.isEmpty() && st.contains('<')) {
+					int idx = st.indexOf('<');
+					st.remove(idx);
 					answer++;
 				} else {
 					st.add('>');
@@ -77,7 +81,7 @@ public class line01 {
 		String s1 = "line [plus]";
 		String s2 = "if (Count of eggs is 4.) {Buy milk.}";
 		String s3 = ">_<";
-		String s4="(helloow[dsesfe{fsefsef}sfes]sef}";
+		String s4 = "{(})";
 
 		solution(s4);
 	}
