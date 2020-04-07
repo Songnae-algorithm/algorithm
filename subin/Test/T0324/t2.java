@@ -28,6 +28,7 @@ public class t2 {
 				compare[0] += list.remove();
 		}
 		
+		
 		if(compare[0] > compare[1])
 			return compare[0]- compare[1];
 		else
