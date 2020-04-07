@@ -2,7 +2,7 @@ package BruteForce;
 
 import java.util.*;
 
-public class beak_ë¡œë˜ {
+public class beak_·Î¶Ç {
 
 	static void comb(int arr[],boolean visited[], int start, int n, int r) {
 		if(r==0) {
