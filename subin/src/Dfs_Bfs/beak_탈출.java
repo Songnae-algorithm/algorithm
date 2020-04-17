@@ -6,48 +6,44 @@ public class beak_탈출 {
 	static class Pos{
 		int x;
 		int y;
-		int cnt;
-		
-		public Pos(int x, int y) {
+		Pos(int x, int y){
 			this.x = x;
 			this.y = y;
-		}
-		
-		public Pos(int x, int y, int cnt) {
-			this.x = x;
-			this.y = y;
-			this.cnt = cnt;
 		}
 	}
 	
-	static char maze[][];
+	static int r,c;
 	static boolean v[][];
-	static int r;
-	static int c;
+	static char maze[][];
 	static int dx[] = {0,0,1,-1};
 	static int dy[] = {1,-1,0,0};
 	
-	public static void flood() {
-		//*찾기
-		ArrayList<Pos> list = new ArrayList<>();
-		for(int i=0; i<r; i++) {
-			for(int j=0; j<c; j++) {
-				if(maze[i][j] == '*')
-					list.add(new Pos(i,j));
-			}
-		}
-		
-		while(!list.isEmpty()) {
-			Pos p = list.remove(0);
-			for(int i=0; i<4; i++) {
-				int nx = p.x + dx[i];
-				int ny = p.y + dy[i];
+	static int lx;
+	static int ly;
+	
+	static Queue<Pos> waters = new LinkedList<>();
+	static Queue<Pos> qu = new LinkedList<>();
+	
+    static boolean isRange(int x, int y) {
+        if( x < 0 || x >= r || y < 0 || y >= c) return false;
+        return true;
+    }
+	
+	public static void water() {
+		int size = waters.size();
+		for(int i=0; i<size; i++) {
+			Pos p = waters.poll();
+			for(int j=0; j<4; j++) {
+				int nx = p.x + dx[j];
+				int ny = p.y + dy[j];
+                if(!isRange(nx, ny) || maze[nx][ny] != '.')
+                    continue;
 				
-				if(nx>=0 && nx<r && ny>=0 && ny<c && maze[nx][ny] == '.' && !v[nx][ny])
-					maze[nx][ny] = '*';
+                maze[nx][ny] = '*';
+				waters.add(new Pos(nx,ny));
+				
 			}
 		}
-		
 	}
 	
 	public static void main(String[] args) {
@@ -56,65 +52,67 @@ public class beak_탈출 {
 		r = sc.nextInt();
 		c = sc.nextInt();
 		
-		sc.nextLine();
 		maze = new char[r][c];
-		v= new boolean[r][c];
+		v = new boolean[r][c];
 		
-		int sx = 0, sy = 0;
-		int lx = 0, ly = 0;
-		boolean b = false;
-		
+		sc.nextLine();
 		for(int i=0; i<r; i++) {
 			String s = sc.nextLine();
 			for(int j=0; j<c; j++) {
-				char cc = s.charAt(j);
-				maze[i][j] = cc;
-				if(cc == 'S') {
-					sx = i;
-					sy = j;
+				char ch = s.charAt(j);
+				maze[i][j] = ch;
+				
+				if(ch == 'S') {
+					qu.add(new Pos(i,j));
+					v[i][j] = true;
 				}
-				if(cc == 'D') {
+				
+				if(ch == '*')
+					waters.add(new Pos(i,j)); //초기화 - 초반에 물 다 넣어주기
+				
+				if(ch == 'D') {
 					lx = i;
 					ly = j;
 				}
-				if(cc == '*')
-					b = true;
+				
 			}
-		}
+		}//for - maze에 값들 넣기
 		
-		Queue<Pos> qu = new LinkedList<>();
-		qu.add(new Pos(sx,sy,0));
-		int answer = -1;
-		//물부터 범람하고
-		//갈수있는곳으로가고
+		int answer = 0;
+		int cnt = 0;
+		boolean b = false;
 		
 		while(!qu.isEmpty()) {
-			Pos p = qu.poll();
-			v[p.x][p.y] = false;
+			water();
 			
-			if(p.x == lx && p.y == ly) {
-				answer = p.cnt;
-				break;
-			}
+			//bfs
+			int qsize = qu.size();
+			for(int i=0; i<qsize; i++) {
+				Pos p = qu.poll();
+				if(p.x == lx && p.y == ly){
+					answer = cnt;
+					b = true;
+					break;
+				}
+				for(int j=0; j<4; j++) {
+					int nx = p.x + dx[j];
+					int ny = p.y + dy[j];
+					
+					if(!isRange(nx, ny)  || v[nx][ny] || maze[nx][ny] == '*' || maze[nx][ny] == 'X')
+                        continue;
+					v[nx][ny] = true;
+					qu.add(new Pos(nx,ny));
+				}
+			}//qu 빼주기
 			
 			if(b == true)
-				flood();
+				break;
 			
-			for(int i=0; i<4; i++) {
-				int nx = p.x + dx[i];
-				int ny = p.y + dy[i];
-				
-				if(nx>=0 && nx<r && ny>=0 && ny<c && (maze[nx][ny] == '.'||maze[nx][ny] =='D')&& !v[nx][ny]) {
-					qu.add(new Pos(nx,ny, p.cnt+1));
-					v[nx][ny] = true;
-				}
-				
-			}//for
-		}//while
-		
-		if(answer == -1)
-			System.out.println("KAKTUS");
+			cnt++;
+		}
+		if(answer != 0)
+			System.out.println(cnt);
 		else
-			System.out.println(answer);
+			System.out.println("KAKTUS");
 	}
 }
