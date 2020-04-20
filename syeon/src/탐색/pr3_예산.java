@@ -9,14 +9,15 @@ public class pr3_예산 {
 		Arrays.sort(budgets);
 
 		long sum = 0;
+		int max = budgets[budgets.length - 1];
+
 		for (int i = 0; i < budgets.length; i++) {
 			sum += budgets[i];
 		}
 		if (sum <= M) {
-			return budgets[budgets.length - 1];//
+			return max;//
 		}
-		
-		
+
 		while (true) {
 			for (int i = 0; i < budgets.length; i++) {
 				if (budgets[i] * (budgets.length - i) <= M) {
