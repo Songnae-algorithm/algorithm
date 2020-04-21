@@ -1,4 +1,4 @@
-package Greedy;
+package 부루트포스;
 
 import java.util.*;
 

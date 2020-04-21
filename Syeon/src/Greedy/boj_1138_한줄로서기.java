@@ -2,7 +2,10 @@ package Greedy;
 
 import java.util.*;
 
+// 중복된게 있으면 list는 뒤로 밀림...!
+
 public class boj_1138_한줄로서기 {
+
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
