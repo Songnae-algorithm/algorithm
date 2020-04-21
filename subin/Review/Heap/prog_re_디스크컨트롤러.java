@@ -1,7 +1,7 @@
 package Heap;
 
 import java.util.*;
-public class prog_디스크컨트롤러 {
+public class prog_re_디스크컨트롤러 {
 
 	//comparator아니고 comparable
 	static class Disk implements Comparable<Disk>{
@@ -21,6 +21,7 @@ public class prog_디스크컨트롤러 {
 			else 
 				return this.job - d.job;
 		}
+		
 	}
 	
     static public int solution(int[][] jobs) {

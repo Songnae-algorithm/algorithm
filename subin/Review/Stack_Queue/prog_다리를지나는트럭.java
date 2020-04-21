@@ -1,4 +1,4 @@
-package Stack;
+package Stack_Queue;
 
 import java.util.*;
 public class prog_다리를지나는트럭 {

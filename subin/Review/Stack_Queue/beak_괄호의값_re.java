@@ -1,8 +1,8 @@
-package Stack;
+package Stack_Queue;
 
 import java.util.*;
 
-public class beak_괄호의값 {
+public class beak_괄호의값_re {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 	
