@@ -25,12 +25,9 @@ public class boj_1946_신입사원2 {
 			Arrays.sort(arr, new Comparator<int[]>() {
 
 				public int compare(int a[], int b[]) {
-					if (a[0] == b[0]) // 0번째 행렬이 같을 때는
-						return a[1] - b[1]; // 뒤에거로 오름차순
-					else
-						return a[0] - b[0]; // 0번째행렬로 오름차순
-					// if랑 return 이랑 같아야 함
-					// return 이 기준이어야 함
+
+					return a[0] - b[0]; //등수가 같을일은 없기때문에 그냥 a[0]-b[0] 리턴 ! ! 
+					
 				}
 			});
 			// arr[i][0] 을 기준으로 정렬함
@@ -40,7 +37,7 @@ public class boj_1946_신입사원2 {
 			for (int i = 1; i < arr.length; i++) {
 				if (arr[i][1] < min) {
 					ans++; // 1등의 면접점수보다 작을때 ans ++
-					 min = arr[i][1]; // min 값을 바꿔줌
+					min = arr[i][1]; // min 값을 바꿔줌
 
 				}
 			}

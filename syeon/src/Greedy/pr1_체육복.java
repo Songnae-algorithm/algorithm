@@ -22,21 +22,22 @@ public class pr1_체육복 {
 		}
 
 		for (int i = 0; i < lost.length; i++) {
-			int a = 0;
+
 			if (lochk[i] == false) {
-				a = lost[i];
-			}
-			for (int j = 0; j < reserve.length; j++) {
+				int a = lost[i];
+
+				for (int j = 0; j < reserve.length; j++) {
 //				if (a - 1 > 0 && a + 1 <= n && !chk[j] && a == reserve[j]) {
 //					answer++;
 //					chk[j] = true;
 //					break; // 내가 잃어버렸을 경우
 //				}
 
-				if (a - 1 > 0 && a + 1 <= n && !chk[j] && a - 1 == reserve[j] || a + 1 == reserve[j]) {
-					answer++;
-					chk[j] = true;
-					break; // 한번만 더해주면 그냥 끝냄
+					if (a - 1 > 0 && a + 1 <= n && !chk[j] && a - 1 == reserve[j] || a + 1 == reserve[j]) {
+						answer++;
+						chk[j] = true;
+						break; // 한번만 더해주면 그냥 끝냄
+					}
 				}
 
 			}
