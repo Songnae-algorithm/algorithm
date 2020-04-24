@@ -40,7 +40,7 @@ public class boj_1946_신입사원2 {
 			for (int i = 1; i < arr.length; i++) {
 				if (arr[i][1] < min) {
 					ans++; // 1등의 면접점수보다 작을때 ans ++
-					min = arr[i][1]; // min 값을 바꿔줌
+					 min = arr[i][1]; // min 값을 바꿔줌
 
 				}
 			}
