@@ -13,7 +13,7 @@ public class pr2_짝지어제거하기2 {
 			if (st.isEmpty()) { // st이 비어있으면 넣음
 				st.push(s.charAt(i));
 			} else if (!st.isEmpty() && st.peek() == s.charAt(i)) { // 비어있지 않고, 꼭대기값이 지금 넣을거랑 같으면
-				st.pop();
+				st.pop(); //pop
 
 			}
 
@@ -21,7 +21,8 @@ public class pr2_짝지어제거하기2 {
 		if (st.isEmpty()) {
 			answer = 1;
 		}
-		System.out.println(answer);
+		//스택이 비어있으면 answer에 1 넣어주기
+		
 
 		return answer;
 	}

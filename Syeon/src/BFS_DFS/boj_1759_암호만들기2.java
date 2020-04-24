@@ -13,21 +13,26 @@ public class boj_1759_암호만들기2 {
 	private static void dfs(int cnt) {
 
 		if (cnt == a) {// a e i o u 포함할 때
-
-			// System.out.println(ans);
-
-			String a = chk(ans);
+			String s ="";
+			for(String k : ans)
+				s+=k;
+			
+			int v_size = chk(s);
 
 			sb.append(a + "\n");
 
-		} else {
-
+		} 
+		else {
+			//bCa
 			for (int i = 0; i < list.size(); i++) {
 				if (ans.contains(list.get(i))) { // ans가 list 값을 가질 떄는 pass
 					continue;
 				}
-				ans.add(list.get(i));// 아닐떄 넣기
-
+				//ans가 empty가 아니면서, i가 커야함!
+				if(!ans.isEmpty()&&i <= list.indexOf(ans.getLast()))
+					continue;
+				
+				ans.add(list.get(i));// 아닐떄 넣기=
 				dfs(cnt + 1);
 				ans.removeLast();
 			}
@@ -36,16 +41,14 @@ public class boj_1759_암호만들기2 {
 
 	}
 
-	private static String chk(LinkedList<String> chk) {
-		String str = "";
+	private static int chk(String s) {
+		String str = "aeiou";
 
 		int chkcnt = 0;
 
-		for (int i = 0; i < chk.size(); i++) {
-			if (chk.get(i).equals("a") || chk.get(i).equals("e") || chk.get(i).equals("i") || chk.get(i).equals("o")
-					|| chk.get(i).equals("u")) {
-				chkcnt++;
-			}
+		for (int i = 0; i < s.length(); i++) {
+			//str.contaion (s)
+			//cnt++;
 
 		}
 
@@ -56,7 +59,7 @@ public class boj_1759_암호만들기2 {
 
 		}
 		// System.out.println(chkcnt);
-		return str;
+		return chkcnt;
 	}
 
 	public static void main(String[] args) {
