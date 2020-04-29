@@ -13,7 +13,6 @@ public class t2 {
 	}
 	
 	public static int solution(String[] ip_addrs, String[] langs, int[] scores) {
-	      //일단 같은 ip 주소끼리 map으로 넣어놓고
 	      HashMap<String, LinkedList<Grade>> map = new HashMap<>();
 	      
 	      for(int i=0; i<ip_addrs.length; i++) {

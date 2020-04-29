@@ -15,9 +15,7 @@ public class t3 {
 				break;
 			}
 		}
-		
-		HashMap <String, LinkedList<Integer>> Map = new HashMap<>();
-		
+			
 		String s = ""; int find = 0;
 		if(idx == 0)
 			 s = new_id;
@@ -35,37 +33,42 @@ public class t3 {
 		if(b == false)
 			return new_id;
 		
-		Arrays.sort(reg_list);
-		
-		String sss ="";
+		LinkedList<Integer> list = new LinkedList<>();
 		for(int i=0; i<reg_list.length; i++) {
-				if(find == 0)
-					sss = s;
-				else
-					sss = s+find;
-				
-				if(!reg_list[i].contains(s))
-					continue;
-				
-				System.out.println("sss " + sss +" "+ reg_list[i]);
-				
-				if(sss.equals(reg_list[i]) && i ==( reg_list.length-1)) {
-					answer = s + (find+1);
-					System.out.println("here");
+			if(s.equals(reg_list[i])) {
+				list.add(0);
+				continue;
+			}
+			
+			int idxx = 0;
+			for(int ii=0; ii<reg_list[i].length(); ii++) {
+				char rc = reg_list[i].charAt(ii);
+				if(rc == '1' || rc == '2'|| rc == '3' ||rc == '4'||rc == '5'||rc == '6'||rc == '7'||rc == '8'||rc == '9'||rc == '0'){
+					idxx = ii;
+					break;
 				}
-				
-				else if(sss.equals(reg_list[i])) {
+			}
+			
+			String ck = reg_list[i].substring(0, idxx);
+			if(ck.equals(s))
+					list.add(Integer.parseInt(reg_list[i].substring(idxx, reg_list[i].length())));
+		}
+		
+		list.sort(null);
+		
+		for(int i=0; i<list.size(); i++) {
+				if(find == list.get(i)) {
 					find++;
+					if(i==list.size()-1) {
+						answer = s+ find;
+					}
 					continue;
 				}
-				
 				else {
-					System.out.println("else -> " + sss + " " + find);
-					answer =sss;
+					answer = s + find;
 					break;
 				}
 		}
-		
 		return answer;
 	}
 	
@@ -75,9 +78,9 @@ public class t3 {
 		String sss[] = {"bird99", "bird98", "bird101", "gotoxy"};
 		String ssss[] = {"apple1", "orange", "banana3"};
 		
-		//System.out.println("answer " +solution(s,"ace15"));
-		//System.out.println("answer " +solution(ss,"cow"));
-		System.out.println("answer " +solution(sss,"bird98"));
-		//System.out.println("answer " +solution(ssss,"apple"));
+		System.out.println(solution(s,"ace15"));
+		System.out.println(solution(ss,"cow"));
+		System.out.println(solution(sss,"bird98"));
+		System.out.println(solution(ssss,"apple"));
 	}
 }
