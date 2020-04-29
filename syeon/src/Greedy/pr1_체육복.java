@@ -4,45 +4,51 @@ import java.util.*;
 
 public class pr1_체육복 {
 
-	// 4/24 01:34
+	// 4/24 01:34 & 17:06
 
 	public static int solution(int n, int[] lost, int[] reserve) {
 		int answer = n - lost.length; // 체육복 안잃어버린 애들 수
-		boolean chk[] = new boolean[reserve.length];
-		boolean lochk[] = new boolean[lost.length];
+
+		ArrayList<Integer> lo = new ArrayList<>();
+		ArrayList<Integer> re = new ArrayList<>();
 
 		for (int i = 0; i < lost.length; i++) {
-			for (int j = 0; j < reserve.length; j++) {
-				if (lost[i] == reserve[j]) {
+			lo.add(lost[i]);
+		}
+		for (int i = 0; i < reserve.length; i++) {
+			re.add(reserve[i]);
+		}
+
+		for (int i = 0; i < lo.size(); i++) {
+			for (int j = 0; j < re.size(); j++) {
+				if (lo.get(i) == re.get(j)) {
 					answer++;
-					chk[j] = true;
-					lochk[i] = true;
+					lo.remove(i);
+					re.remove(j);
 				}
 			}
 		}
 
-		for (int i = 0; i < lost.length; i++) {
+		// 잃어버린애가 여분이 있을 경우 제거해 줌
 
-			if (lochk[i] == false) {
-				int a = lost[i];
+		for (int i = 0; i < lo.size(); i++) {
 
-				for (int j = 0; j < reserve.length; j++) {
-//				if (a - 1 > 0 && a + 1 <= n && !chk[j] && a == reserve[j]) {
-//					answer++;
-//					chk[j] = true;
-//					break; // 내가 잃어버렸을 경우
-//				}
-
-					if (a - 1 > 0 && a + 1 <= n && !chk[j] && a - 1 == reserve[j] || a + 1 == reserve[j]) {
-						answer++;
-						chk[j] = true;
-						break; // 한번만 더해주면 그냥 끝냄
-					}
+			int los = lo.get(i);
+			System.out.println(los);
+			for (int j = 0; j < re.size(); j++) {
+				int res = re.get(j);
+				System.out.println(res);
+				if (res - 1 > 0 && res + 1 <= n && los == res - 1 || los == res + 1) {
+					answer++;
+					lo.remove(i);
+					re.remove(j);
+					i = -1;
+					j = -1;
 				}
 
 			}
 		}
-
+		System.out.println(answer);
 		return answer;
 	}
 

@@ -1,10 +1,21 @@
-package Programmers;
+package BFS_DFS;
 
 import java.util.*;
 
-public class pr3_여행경로2 {
+//class node {
+//	String start;
+//	String end;
+//
+//	node(String start, String end) {
+//		this.start = start;
+//		this.end = end;
+//
+//	}
+//}
+
+public class pr3_여행경로 {
 	public static String[] solution(String[][] tickets) {
-		String[] answer = new String[tickets.length+1];
+		String[] answer = new String[tickets.length];
 
 		ArrayList<String> list = new ArrayList<>();
 		boolean chk[] = new boolean[tickets.length];
@@ -24,6 +35,7 @@ public class pr3_여행경로2 {
 
 		Queue<String> qu = new LinkedList<>();
 		list.add("ICN");
+		int cnt = 0;
 
 		for (int i = 0; i < tickets.length; i++) {
 			if (tickets[i][0].equals("ICN")) {// icn이랑 같을 때
@@ -32,30 +44,28 @@ public class pr3_여행경로2 {
 				chk[i] = true;
 				list.add(tickets[i][1]);
 
-				while (!qu.isEmpty()) {
+				while (!qu.isEmpty() && cnt != tickets.length) {
 					String s = qu.poll(); // 꺼낸 값
-					// System.out.println(s + "Ssss");
 
 					for (int j = 0; j < tickets.length; j++) {
 
-						if (chk[j] == false && tickets[j][0].equals(s)) {
+						if (tickets[j][0].equals(s) && chk[j] == false) {
 
 							chk[j] = true;
 
-							// System.out.println(tickets[j][0] + " " + tickets[j][1]);
 							list.add(tickets[j][1]);
 							qu.add(tickets[j][1]);
-							break;//1번만 가야되용^^ 
+							cnt++;
 						}
 					}
 				}
 			}
 		}
 
-		System.out.println(list);
 		for (int i = 0; i < answer.length; i++) {
-			answer[i] = list.get(i);
+			answer[i] += list.get(i);
 		}
+		System.out.println(list);
 		return answer;
 	}
 
@@ -63,9 +73,7 @@ public class pr3_여행경로2 {
 		String arr[][] = { { "ICN", "JFK" }, { "HND", "IAD" }, { "JFK", "HND" } };
 
 		String arr2[][] = { { "ICN", "SFO" }, { "ICN", "ATL" }, { "SFO", "ATL" }, { "ATL", "ICN" }, { "ATL", "SFO" } };
-		
-		String arr3[][]= {{"ICN", "COO"}, {"ICN", "BOO"}, {"COO", "ICN"}, {"BOO", "DOO"}};
-		solution(arr3);
+		solution(arr2);
 
 	}
 

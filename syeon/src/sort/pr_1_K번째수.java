@@ -1,4 +1,4 @@
-package Programmers;
+package sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
