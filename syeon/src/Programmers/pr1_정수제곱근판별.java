@@ -5,7 +5,7 @@ public class pr1_정수제곱근판별 {
 	public static long solution(long n) {
 		// 4/29 17:50 -18:00;
 		// 5분만에 풀었으나 i=1일경우에 리턴이 4가 안돼서.....흠...
-		//math.sqrt(a,b);-->제곱근을 판별해쥼당 
+		//math.sqrt(a,b);-->제곱근을 판별해준다. 이게 기억이 안났지..
 
 		  long answer = -1;
 
