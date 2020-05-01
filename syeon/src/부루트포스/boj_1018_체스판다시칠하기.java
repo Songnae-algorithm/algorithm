@@ -1,4 +1,4 @@
-package Boj;
+package 부루트포스;
 
 import java.util.*;
 
