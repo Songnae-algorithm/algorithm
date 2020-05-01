@@ -6,7 +6,8 @@ public class boj_6033_로또2 {
 
 	public static void main(String[] args) {
 		// 5/1 11:54 -12:30
-		
+		// 왜 static 으로 저장했니..........
+
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
@@ -17,6 +18,7 @@ public class boj_6033_로또2 {
 
 			LinkedList<Integer> list = new LinkedList<>(); // 숫자 입력받아서 저장 해 놓을 리스트
 			LinkedList<Integer> num = new LinkedList<>(); // 하나씩 넣어서 출력할 리스트
+
 			for (int i = 0; i < in; i++) {
 
 				list.add(sc.nextInt());
@@ -48,13 +50,12 @@ public class boj_6033_로또2 {
 			if (num.contains(list.get(i)) || !num.isEmpty() && list.get(i) < num.getLast()) {
 				continue;
 			}
-
-			// 이미 갖고 있거나 들어갈 숫자가 num의 마지막보다 작으면 안넣음
+			// 이미 갖고 있거나 들어갈 숫자가 num의 마지막보다 작으면 안넣음 이걸 알아두자.
 
 			num.add(list.get(i));
 
 			perm(list, num, cnt + 1);
-			num.removeLast();
+			num.removeLast();// 링크드리스트에서 가능. arraylist 쓰면 안돼
 
 		}
 
