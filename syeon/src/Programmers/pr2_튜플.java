@@ -36,13 +36,14 @@ public class pr2_튜플 {
 
 		Arrays.sort(arr, comp);
 
-		ArrayList<String> ans = new ArrayList<>();
+		ArrayList<String> ans = new ArrayList<>(); //값 입력할 list 
 
 		for (int i = 0; i < arr.length; i++) {
 			String[] spl = arr[i].split(",");
+			//,마다 짤라서 배열에 넣기 
 			for (int j = 0; j < spl.length; j++) {
 				if (!ans.contains(spl[j])) {
-					ans.add(spl[j]);
+					ans.add(spl[j]);//포함안하면 리스트에입력
 				}
 			}
 		}
