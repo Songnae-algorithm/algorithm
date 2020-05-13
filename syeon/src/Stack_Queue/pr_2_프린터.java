@@ -1,4 +1,4 @@
-package Programmers;
+package Stack_Queue;
 
 import java.util.*;
 
@@ -18,7 +18,8 @@ public class pr_2_프린터 {
 		boolean chk = false;
 		
 		while(true){
-			
+		
+
 			//배열의 가장 앞에 있는 값과 뒤에있는값들 비교
 			for(int i=1;i<que.size();i++) {
 			

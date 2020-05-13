@@ -2,7 +2,7 @@ package Programmers;
 
 import java.util.*;
 
-public class pr2_야근지수3 {
+public class pr3_야근지수3 {
 
 	public static long solution(int n, int[] works) {
 
