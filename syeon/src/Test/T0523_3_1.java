@@ -25,7 +25,7 @@ public class T0523_3_1 {
 				int dy[] = { -1, -2, 1 };
 
 				int a = arr[i][j + dy[0]];
-				// boolean chk = false;
+				
 				int cnt = 0;
 				for (int k = 1; k < 3; k++) {
 					int ny = j + dy[k];
