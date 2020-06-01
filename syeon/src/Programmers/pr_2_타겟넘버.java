@@ -1,20 +1,22 @@
 package Programmers;
 
-
 public class pr_2_타겟넘버 {
 	static int answer = 0;
 
 	private static void dfs(int[] arr, int target, int index, int sum) {
-
+		System.out.println(index+ "플"+ sum);
 		if (index == arr.length) {
+			//System.out.println(index+ "답답"+ sum);
 			if (target == sum) {
+				
 				answer++;
 			}
 		} else {
 
 			dfs(arr, target, index + 1, sum + arr[index]);
+			
 			dfs(arr, target, index + 1, sum - arr[index]);
-
+			
 		}
 
 	}
