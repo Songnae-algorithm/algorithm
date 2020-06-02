@@ -1,4 +1,4 @@
-package Heap;
+package Hash;
 
 public class pr3_베스트앨범2 {
 

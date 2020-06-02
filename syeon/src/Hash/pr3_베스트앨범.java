@@ -1,4 +1,4 @@
-package Heap;
+package Hash;
 
 import java.util.*;
 
