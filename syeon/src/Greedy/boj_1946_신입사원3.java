@@ -5,12 +5,14 @@ import java.util.*;
 public class boj_1946_신입사원3 {
 	// 4/24
 	// 10:45 start 10:55 fin
+	
 
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 
 		int in = sc.nextInt();
+		
 
 		for (int a = 0; a < in; a++) {
 			int cnt = 1;
@@ -26,12 +28,13 @@ public class boj_1946_신입사원3 {
 			Arrays.sort(arr, new Comparator<int[]>() {
 
 				public int compare(int a[], int b[]) {
-//					if (a[0] == b[0]) {
-//						return a[1] - b[1];
-//					} else {
-					return a[0] - b[0];
-				}
+					if (a[0] == b[0]) {
+						return a[1] - b[1];
+					} else {
+						return a[0] - b[0];
+					}
 
+				}
 			}); // 서류점수로 정렬
 
 			int min = arr[0][1];
